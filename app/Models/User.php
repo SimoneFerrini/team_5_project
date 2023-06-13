@@ -24,7 +24,8 @@ class User extends Authenticatable
         'email',
         'password',
     ];
-
+    
+    
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -34,7 +35,7 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
-
+    
     /**
      * The attributes that should be cast.
      *
@@ -43,4 +44,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function houses(){
+        return $this->hasMany(House::class);
+    }
 }

@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('houses', function (Blueprint $table) {
             $table->id();
 
+           $table->unsignedBigInteger('user_id');
+           $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');//verificare se cascade va bene cosi 
+
             $table->string('title', 100)->required();
             $table->text('description', 500)->required();
             $table->tinyInteger('rooms')->required();
@@ -28,7 +31,7 @@ return new class extends Migration
             $table->double('latitude');
             $table->double('longitude');
             $table->text('thumbnail')->required();
-            $table->boolean('visibility');
+            $table->boolean('visibility');           
             
 
             $table->timestamps();
@@ -43,5 +46,6 @@ return new class extends Migration
     public function down()
     {
         Schema::dropIfExists('houses');
+        
     }
 };
