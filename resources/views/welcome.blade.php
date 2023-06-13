@@ -11,7 +11,7 @@
             </svg>
         </div>
         <h1 class="display-5 fw-bold">
-            Welcome to Team 5 motherfuckerssssss
+            Welcome to Team 5 
         </h1>
 
         <p class="col-md-8 fs-4">This a preset package with Bootstrap 5 views for laravel projects including laravel breeze/blade. It works from laravel 9.x to the latest release 10.x</p>
@@ -21,7 +21,7 @@
 
 <div class="content">
     <div class="container">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempora temporibus, dicta nemo aliquam totam nisi deserunt soluta quas voluptatum ab beatae praesentium necessitatibus minus, facilis illum rerum officiis accusamus dolores!</p>
+        
     </div>
 </div>
 @endsection
