@@ -28,5 +28,9 @@ class House extends Model
         return $this->hasMany(Message::class);
     }
 
+    public function services() {
+        return $this->belongsToMany(Service::class);
+    }
+
     
 }

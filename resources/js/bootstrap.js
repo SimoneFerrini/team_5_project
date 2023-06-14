@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import '@fortawesome/fontawesome-free/js/all.js';
 window._ = _;
 
 /**
