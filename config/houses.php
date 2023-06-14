@@ -14,7 +14,7 @@ return $houses = [
         'house_number'=> 71,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://ibb.co/4WkYbVL',
+        'thumbnail'=> 'https://i.ibb.co/y02YzQC/Immagine-2023-06-13-152435.jpg',
         'visibility'=> true,
     ],
     [   
@@ -30,7 +30,7 @@ return $houses = [
         'house_number'=> 17,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://ibb.co/4WkYbVL',
+        'thumbnail'=> 'https://i.ibb.co/y02YzQC/Immagine-2023-06-13-152435.jpg',
         'visibility'=> true,
     ],
     [   
@@ -46,7 +46,7 @@ return $houses = [
         'house_number'=> 1,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://ibb.co/4WkYbVL',
+        'thumbnail'=> 'https://i.ibb.co/y02YzQC/Immagine-2023-06-13-152435.jpg',
         'visibility'=> true,
     ],
     [   
@@ -62,7 +62,7 @@ return $houses = [
         'house_number'=> 18,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://ibb.co/4WkYbVL',
+        'thumbnail'=> 'https://i.ibb.co/y02YzQC/Immagine-2023-06-13-152435.jpg',
         'visibility'=> true,
     ],
 ];

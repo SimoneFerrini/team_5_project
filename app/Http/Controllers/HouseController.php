@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\House;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HouseController extends Controller
 {
@@ -14,7 +15,9 @@ class HouseController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = Auth::id();
+        $houses = House::where('user_id', $user_id)->get();
+        return view('welcome', compact('houses'));
     }
 
     /**
