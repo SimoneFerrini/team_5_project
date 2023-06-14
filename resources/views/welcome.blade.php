@@ -14,10 +14,11 @@
               <li class="list-group-item">{{$house->square_mt}}</li>
             </ul>
             <div class="card-body">
-              <a href="#" class="card-link">Card link</a>
+              <a href="{{route('houses.show', $house)}}" class="card-link">Guarda la tua casa</a>
               <a href="#" class="card-link">Another link</a>
             </div>
           </div>
         @endforeach
     </div>
+    <a href="{{route('houses.create')}}" class="btn btn-primary">Aggiungi una casa</a>
 @endsection

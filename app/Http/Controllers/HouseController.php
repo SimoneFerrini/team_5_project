@@ -27,7 +27,7 @@ class HouseController extends Controller
      */
     public function create()
     {
-        //
+        return view('houses.create');
     }
 
     /**
@@ -38,7 +38,12 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $formData = $request->all();
+        $newHouse = new House();
+        $newHouse->fill($formData);
+        $newHouse->user_id = Auth::id();
+        $newHouse->save();
+        return redirect()->route('houses.show', $newHouse);
     }
 
     /**
@@ -49,7 +54,7 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        //
+        return view('houses.show', compact('house'));
     }
 
     /**

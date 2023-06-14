@@ -15,9 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/', function() {
+    return view('auth.login');
+});
+
 Route::middleware(['auth', 'verified'])
     ->group(function() {
-    Route::resource('/', HouseController::class);
+    Route::get('/', function() {
+        return redirect()->action([HouseController::class, 'index']);;
+    });    
+    Route::resource('houses', HouseController::class)->names([
+        'index'=>'welcome',
+        'create'=>'houses.create', 
+        'show'=>'houses.show'
+    ]);
 });
 
 Route::middleware('auth')->group(function () {

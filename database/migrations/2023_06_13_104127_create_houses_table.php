@@ -28,10 +28,10 @@ return new class extends Migration
             $table->string('street')->required();
             $table->string('city')->required();
             $table->smallInteger('house_number')->required();
-            $table->double('latitude');
-            $table->double('longitude');
+            $table->double('latitude')->nullable();
+            $table->double('longitude')->nullable();
             $table->text('thumbnail')->required();
-            $table->boolean('visibility');           
+            $table->boolean('visibility')->default(true);           
             
 
             $table->timestamps();
