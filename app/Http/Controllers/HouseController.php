@@ -121,7 +121,9 @@ class HouseController extends Controller
      */
     public function destroy(House $house)
     {
-        //
+        $house->delete();
+
+        return redirect()->route('welcome');
     }
 
     private function validation($formData)
