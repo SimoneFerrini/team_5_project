@@ -12,6 +12,11 @@
               <li class="list-group-item">N° stanze: {{$house->rooms}}</li>
               <li class="list-group-item">N° bagni: {{$house->bathrooms}}</li>
               <li class="list-group-item">metri_quadri: {{$house->square_mt}}</li>
+              <li class="list-group-item">Servizi: 
+              @foreach ($house->services as $singleService)
+                  <i class="{{$singleService->icon}}"></i> {{$singleService->name}}
+              @endforeach
+              </li>
             </ul>
             <div class="card-body">
               <a href="{{route('houses.show', $house)}}" class="card-link">Guarda la tua casa</a>

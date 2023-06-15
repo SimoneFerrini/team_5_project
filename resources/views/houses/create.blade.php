@@ -45,7 +45,7 @@
         <div class="container d-flex flex-wrap gap-3 pb-4">
             @foreach ($services as $service)   
             <div class="form-check d-flex gap-3">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <input name="services[]" class="form-check-input" type="checkbox" value="{{$service->id}}" id="flexCheckDefault">
                 <label class="form-check-label" for="flexCheckDefault">
                     <i class="{{$service->icon}}"></i> <span>{{$service->name}}</span>
                 </label>
@@ -53,7 +53,7 @@
             @endforeach
         </div>
             <div class="form-check form-switch pb-4">
-                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <input name="visibility" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                 <label class="form-check-label" for="flexSwitchCheckDefault">Visibilità</label>
             </div>              
         <button type="submit" class="btn btn-secondary">Aggiungi</button>

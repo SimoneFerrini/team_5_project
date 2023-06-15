@@ -44,7 +44,13 @@ class HouseController extends Controller
         $newHouse = new House();
         $newHouse->fill($formData);
         $newHouse->user_id = Auth::id();
+        if(isset($formData['visibility'])) {
+            $newHouse->visibility = true;
+        } else {
+            $newHouse->visibility = false;
+        };
         $newHouse->save();
+        $newHouse->services()->attach($formData['services']);
         return redirect()->route('houses.show', $newHouse);
     }
 
