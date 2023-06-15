@@ -9,7 +9,8 @@ class Image extends Model
 {
     use HasFactory;
 
-    public function house(){
+    public function house()
+    {
         return $this->belongsTo(House::class);
     }
 }
