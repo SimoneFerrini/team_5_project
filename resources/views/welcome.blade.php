@@ -9,9 +9,9 @@
               <p class="card-text">{{$house->description}}</p>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{$house->rooms}}</li>
-              <li class="list-group-item">{{$house->bathrooms}}</li>
-              <li class="list-group-item">{{$house->square_mt}}</li>
+              <li class="list-group-item">N° stanze: {{$house->rooms}}</li>
+              <li class="list-group-item">N° bagni: {{$house->bathrooms}}</li>
+              <li class="list-group-item">metri_quadri: {{$house->square_mt}}</li>
             </ul>
             <div class="card-body">
               <a href="{{route('houses.show', $house)}}" class="card-link">Guarda la tua casa</a>
