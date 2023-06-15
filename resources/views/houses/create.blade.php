@@ -42,6 +42,20 @@
         <div class="input-group mb-3">
             <input name="thumbnail" type="file" class="form-control" id="inputGroupFile02">
         </div>
+        <div class="container d-flex flex-wrap gap-3 pb-4">
+            @foreach ($services as $service)   
+            <div class="form-check d-flex gap-3">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                <label class="form-check-label" for="flexCheckDefault">
+                    <i class="{{$service->icon}}"></i> <span>{{$service->name}}</span>
+                </label>
+            </div>
+            @endforeach
+        </div>
+            <div class="form-check form-switch pb-4">
+                <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <label class="form-check-label" for="flexSwitchCheckDefault">Visibilità</label>
+            </div>              
         <button type="submit" class="btn btn-secondary">Aggiungi</button>
     </form>
 </div>
