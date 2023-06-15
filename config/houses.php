@@ -34,7 +34,7 @@ return $houses = [
         'visibility'=> true,
     ],
     [   
-        'user_id'=>2,
+        'user_id'=>1,
         'title'=> 'Sottoponte Ferrini',
         'description'=> 'un bel ponte devo dire, sì esatto',
         'rooms'=> 1,
@@ -50,7 +50,7 @@ return $houses = [
         'visibility'=> true,
     ],
     [   
-        'user_id'=>2,
+        'user_id'=>1,
         'title'=> 'Poggio Bacoli',
         'description'=> 'questa è la casa template di domenico eheh',
         'rooms'=> 8,
@@ -66,7 +66,7 @@ return $houses = [
         'visibility'=> true,
     ],
     [   
-        'user_id'=>3,
+        'user_id'=>1,
         'title'=> 'Casa ad Arcore di Gabry :P',
         'description'=> 'siamo a corto di descrizioni',
         'rooms'=> 8,
@@ -82,7 +82,7 @@ return $houses = [
         'visibility'=> true,
     ],
     [   
-        'user_id'=>3,
+        'user_id'=>1,
         'title'=> 'Villa De Vivo',
         'description'=> 'Situated in Manduria, 36 km from Taranto Sotterranea, 38 km from National Archaeological Museum of Taranto Marta and 38 km from Castello Aragonese, La Filumena features accommodation with a balcony and free WiFi. Housed in a building dating from 2020, this holiday home is 40 km from the Taranto Cathedral. The air-conditioned holiday home consists of 1 bedroom, a living room, a fully equipped kitchen with a fridge, and 2 bathrooms with a bidet and a hairdryer. Towels and bed linen are available',
         'rooms'=> 12,
@@ -98,7 +98,7 @@ return $houses = [
         'visibility'=> true,
     ],
     [   
-        'user_id'=>4,
+        'user_id'=>1,
         'title'=> 'Stamberga Giulia',
         'description'=> 'stamberga delle stamberghe top quality very recomended',
         'rooms'=> 7,
@@ -114,7 +114,7 @@ return $houses = [
         'visibility'=> true,
     ],
     [   
-        'user_id'=>4,
+        'user_id'=>1,
         'title'=> 'Sottoponte Ferrini',
         'description'=> 'un bel ponte devo dire, sì esatto',
         'rooms'=> 1,
@@ -130,7 +130,7 @@ return $houses = [
         'visibility'=> true,
     ],
     [   
-        'user_id'=>5,
+        'user_id'=>1,
         'title'=> 'Poggio Bacoli',
         'description'=> 'questa è la casa template di domenico eheh',
         'rooms'=> 8,
@@ -146,7 +146,7 @@ return $houses = [
         'visibility'=> true,
     ],
     [   
-        'user_id'=>5,
+        'user_id'=>1,
         'title'=> 'Casa ad Arcore di Gabry :P',
         'description'=> 'siamo a corto di descrizioni',
         'rooms'=> 8,

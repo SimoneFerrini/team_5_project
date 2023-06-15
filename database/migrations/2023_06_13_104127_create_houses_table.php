@@ -31,7 +31,9 @@ return new class extends Migration
             $table->double('latitude')->nullable();
             $table->double('longitude')->nullable();
             $table->text('thumbnail')->required();
-            $table->boolean('visibility')->default(true);           
+            $table->boolean('visibility')->default(true); 
+            $table->boolean('sponsorship')->default(false);           
+
             
 
             $table->timestamps();
