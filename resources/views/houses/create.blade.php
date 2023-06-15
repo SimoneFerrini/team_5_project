@@ -4,8 +4,13 @@
     <form action="{{route('houses.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="input-group mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
-            <input name="title" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <span for="title" class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+            <input name="title" id="title" type="text" class="form-control @error('title') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            @error('title')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+            @enderror
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Descrizione</span>

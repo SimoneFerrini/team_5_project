@@ -11,7 +11,7 @@
             <ul class="list-group list-group-flush">
               <li class="list-group-item">N° stanze: {{$house->rooms}}</li>
               <li class="list-group-item">N° bagni: {{$house->bathrooms}}</li>
-              <li class="list-group-item">metri_quadri: {{$house->square_mt}}</li>
+              <li class="list-group-item">m&sup2;: {{$house->square_mt}}</li>
               <li class="list-group-item">Servizi: 
               @foreach ($house->services as $singleService)
                   <i class="{{$singleService->icon}}"></i> {{$singleService->name}}

@@ -6,6 +6,7 @@ use App\Models\House;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class HouseController extends Controller
 {
@@ -97,5 +98,24 @@ class HouseController extends Controller
     public function destroy(House $house)
     {
         //
+    }
+
+    private function validation($request) {
+        $formData = $request->all();
+        $validator = Validator::make($formData, [
+            'title' => 'required|max:100|min:3', 
+            'description' => 'required|max:500',
+            'rooms' => 'required|',
+            'beds' => 'required|',
+            'bathrooms' => 'required|',
+            'square_mt' => 'required|',
+            'street' => 'required|',
+            'city' => 'required|',
+            'house_number' => 'required|',
+            'thumbnail' => 'required|',
+        ], [
+
+        ])->validate();
+        return $validator;
     }
 }
