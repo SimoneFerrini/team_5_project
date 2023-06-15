@@ -82,7 +82,9 @@ class HouseController extends Controller
      */
     public function edit(House $house)
     {
-        //
+        $services = Service::all();
+
+        return view('houses.edit', compact('house', 'services'));
     }
 
     /**
@@ -94,7 +96,21 @@ class HouseController extends Controller
      */
     public function update(Request $request, House $house)
     {
-        //
+        $formData = $request->all();
+
+        $this->validation($formData);
+
+
+        $house->update($formData);
+
+        if (array_key_exists('services', $formData)) {
+            $house->services()->sync($formData['services']);
+        } else {
+            $house->services()->detach();
+        }
+
+
+        return redirect()->route('houses.show', $house);
     }
 
     /**

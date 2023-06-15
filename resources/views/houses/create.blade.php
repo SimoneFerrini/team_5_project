@@ -104,7 +104,7 @@
             @endforeach
         </div>
             <div class="form-check form-switch pb-4">
-                <input name="visibility" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked required>
+                <input name="visibility" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                 <label class="form-check-label" for="flexSwitchCheckDefault">Visibilità</label>
             </div>              
         <button type="submit" class="btn btn-secondary">Aggiungi</button>
