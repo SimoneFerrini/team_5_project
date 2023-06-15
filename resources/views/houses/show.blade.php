@@ -1,4 +1,4 @@
 @extends('layouts.app')
 @section('content')
-    grabiele aveva ragione
+    Sei nella show della casa con id {{$house->id}}
 @endsection
