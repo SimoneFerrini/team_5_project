@@ -11,7 +11,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     {{-- favicon --}}
-    <link rel="shortcut icon" sizes="114x114" href="{{ asset('/favicon.ico') }}">
+    <link rel="shortcut icon" sizes="114x114" href="{{ asset('/favicon.png') }}">
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
