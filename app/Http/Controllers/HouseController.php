@@ -47,7 +47,10 @@ class HouseController extends Controller
 
         $newHouse = new House();
 
-        $newHouse->fill($formData);
+        if($request-)hasFile('thumbnail')
+ 
+
+        $n>ewHouse->fill($formData);
 
         $newHouse->user_id = Auth::id();
 
