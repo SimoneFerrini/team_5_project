@@ -79,7 +79,8 @@ class HouseController extends Controller
      */
     public function show(House $house)
     {
-        return view('houses.show', compact('house'));
+        $user_id = Auth::id();
+        return view('houses.show', compact('house', 'user_id'));
     }
 
     /**
@@ -92,7 +93,9 @@ class HouseController extends Controller
     {
         $services = Service::all();
 
-        return view('houses.edit', compact('house', 'services'));
+        $user_id = Auth::id();
+
+        return view('houses.edit', compact('house', 'services', 'user_id'));
     }
 
     /**

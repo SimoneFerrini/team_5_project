@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div class="container mt-5">
+  @if($house->user_id != $user_id)
+  <span>Fatti una casa tua con blackjack e squillo di lusso!</span>
+  @else
   <form action="{{route('houses.update', $house)}}" method="POST" enctype="multipart/form-data">
       @csrf
       @method('PUT')
@@ -112,5 +115,6 @@
       <hr>
       <span>* I campi sono obbligatori!</span>
   </form>
+  @endif
 </div>
 @endsection

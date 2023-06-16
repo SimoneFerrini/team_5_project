@@ -1,6 +1,9 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
+<div class="container">
+      @if($house->user_id != $user_id)
+      <span>Non puoi visualizzare questa casa!</span>
+      @else
       <div class="card" style="width: 18rem;">
         <img src="{{asset('storage/'. $house->thumbnail)}}" class="card-img-top" alt="Immagine di copertina">
         <div class="card-body">
@@ -22,11 +25,12 @@
       <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
         Cancella casa
       </button>
-    </div>
+      @endif
+</div>
 
     {{-- Modal --}}
 
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -49,5 +53,6 @@
           </div>
         </div>
       </div>
-    </div>
+  
+</div>
 @endsection
