@@ -1,6 +1,6 @@
  @extends('layouts.app')
 @section('content')
-    <div class="container d-flex flex-wrap">
+    <div class="container d-flex flex-wrap justify-content-around gap-3 pt-3">
         @foreach ($houses as $house)
         <div class="card" style="width: 18rem;">
             <img src="{{asset('storage/'. $house->thumbnail)}}" class="card-img-top" alt="Immagine di copertina">
@@ -19,8 +19,7 @@
               </li>
             </ul>
             <div class="card-body">
-              <a href="{{route('houses.show', $house)}}" class="card-link">Guarda la tua casa</a>
-              <a href="#" class="card-link">Another link</a>
+              <button class="btn btn-secondary"><a href="{{route('houses.show', $house)}}" class="link-light">Guarda la tua casa</a></button> 
             </div>
           </div>
         @endforeach

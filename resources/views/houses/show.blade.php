@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container pt-3 d-flex align-items-center flex-column">
       @if($house->user_id != $user_id)
       <span>Non puoi visualizzare questa casa!</span>
       @else
@@ -21,7 +21,8 @@
           </li>
         </ul>
       </div>
-      <a href="{{route('houses.edit', $house)}}" class="card-link">Modifica la tua casa</a>
+      <hr>
+      <button class="btn btn-secondary mb-3"><a href="{{route('houses.edit', $house)}}" class="link-light">Modifica la tua casa</a></button>
       <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
         Cancella casa
       </button>
