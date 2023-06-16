@@ -19,7 +19,7 @@ class HouseController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $houses = House::where('user_id', $user_id)->get();
+        $houses = House::where('user_id', $user_id)->orderBy('id', 'DESC')->get();
         return view('welcome', compact('houses'));
     }
 
