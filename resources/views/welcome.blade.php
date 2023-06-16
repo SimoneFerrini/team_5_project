@@ -1,4 +1,4 @@
-@extends('layouts.app')
+ @extends('layouts.app')
 @section('content')
     <div class="container d-flex flex-wrap">
         @foreach ($houses as $house)

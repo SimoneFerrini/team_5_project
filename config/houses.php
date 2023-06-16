@@ -14,7 +14,7 @@ return $houses = [
         'house_number'=> 71,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://www.uozhouse.it/wp-content/uploads/2020/05/2LAURA-esterno-2.jpg',
+        'thumbnail'=> 'houses_img/2LAURA-esterno-2.jpg',
         'visibility'=> true,
     ],
     [   
@@ -30,7 +30,7 @@ return $houses = [
         'house_number'=> 17,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://gallery-cdn.tiscali.it/repository/1385/650x468/1384302.jpg',
+        'thumbnail'=> 'houses_img/1384302.jpg',
         'visibility'=> true,
     ],
     [   
@@ -46,7 +46,7 @@ return $houses = [
         'house_number'=> 1,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://www.geniuslociarchitettura.it/wp-content/uploads/2019/05/01-18.jpg',
+        'thumbnail'=> 'houses_img/01-18.jpg',
         'visibility'=> true,
     ],
     [   
@@ -62,7 +62,7 @@ return $houses = [
         'house_number'=> 18,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/75/c1/d3.jpg',
+        'thumbnail'=> 'houses_img/d3.jpg',
         'visibility'=> true,
     ],
     [   
@@ -78,13 +78,13 @@ return $houses = [
         'house_number'=> 18,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://www.immobiliare.it/news/app/uploads/2022/01/montagna-baita_seconda_casa_neve_chalet_min.jpeg',
+        'thumbnail'=> 'houses_img/montagna-baita_seconda_casa_neve_chalet_min.jpeg',
         'visibility'=> true,
     ],
     [   
         'user_id'=>1,
-        'title'=> 'Villa De Vivo',
-        'description'=> 'Situated in Manduria, 36 km from Taranto Sotterranea, 38 km from National Archaeological Museum of Taranto Marta and 38 km from Castello Aragonese, La Filumena features accommodation with a balcony and free WiFi. Housed in a building dating from 2020, this holiday home is 40 km from the Taranto Cathedral. The air-conditioned holiday home consists of 1 bedroom, a living room, a fully equipped kitchen with a fridge, and 2 bathrooms with a bidet and a hairdryer. Towels and bed linen are available',
+        'title'=> 'Masseria De Vivo',
+        'description'=> 'Situated in Manduria, La Filumena features accommodation with a balcony and free WiFi. Towels and bed linen are available',
         'rooms'=> 12,
         'beds'=> 10,
         'bathrooms'=> 3,
@@ -94,7 +94,7 @@ return $houses = [
         'house_number'=> 71,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://www.uozhouse.it/wp-content/uploads/2020/05/2LAURA-esterno-2.jpg',
+        'thumbnail'=> 'houses_img/2LAURA-esterno-2.jpg',
         'visibility'=> true,
     ],
     [   
@@ -110,7 +110,7 @@ return $houses = [
         'house_number'=> 17,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'public/storage/houses_img/https://gallery-cdn.tiscali.it/repository/1385/650x468/1384302.jpg',
+        'thumbnail'=> 'houses_img/1384302.jpg',
         'visibility'=> true,
     ],
     [   
@@ -126,7 +126,7 @@ return $houses = [
         'house_number'=> 1,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://www.geniuslociarchitettura.it/wp-content/uploads/2019/05/01-18.jpg',
+        'thumbnail'=> 'houses_img/01-18.jpg',
         'visibility'=> true,
     ],
     [   
@@ -142,7 +142,7 @@ return $houses = [
         'house_number'=> 18,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://media.tacdn.com/media/attractions-splice-spp-674x446/06/75/c1/d3.jpg',
+        'thumbnail'=> 'houses_img/d3.jpg',
         'visibility'=> true,
     ],
     [   
@@ -158,7 +158,7 @@ return $houses = [
         'house_number'=> 18,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://www.immobiliare.it/news/app/uploads/2022/01/montagna-baita_seconda_casa_neve_chalet_min.jpeg',
+        'thumbnail'=> 'houses_img/montagna-baita_seconda_casa_neve_chalet_min.jpeg',
         'visibility'=> true,
     ],
 ];
