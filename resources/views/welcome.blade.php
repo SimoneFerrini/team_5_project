@@ -1,4 +1,6 @@
- @extends('layouts.app')
+
+
+@extends('layouts.app')
 @section('content')
     <div class="container d-flex flex-wrap justify-content-around gap-3 pt-3">
         @foreach ($houses as $house)
@@ -18,8 +20,15 @@
               @endforeach
               </li>
             </ul>
+
+            
             <div class="card-body">
-              <button class="btn btn-secondary"><a href="{{route('houses.show', $house)}}" class="link-light">Guarda la tua casa</a></button> 
+              <div class="container d-flex align-items-center gap-2">
+                <button class="btn btn-secondary"><a href="{{route('houses.show', $house)}}" class="link-light">Guarda la tua casa</a></button> 
+                <div class="form-check form-switch">
+                  <input name="visibility" class="form-check-input" type="checkbox"  role="switch" id="flexSwitchCheckChecked" checked>
+                </div>
+              </div>
             </div>
           </div>
         @endforeach
@@ -28,3 +37,10 @@
       <button class="btn btn-secondary" type="button"><a href="{{route('houses.create')}}" class="link-light">Aggiungi una casa</a></button>
     </div>
 @endsection
+
+{{-- <form action="/houses" method="POST">
+  <input type="hidded" name="houses_id" value="{{$house->visibility}}"/>
+  <button type="submit">
+    bottone
+  </button>
+</form> --}}

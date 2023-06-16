@@ -48,12 +48,12 @@ class HouseController extends Controller
 
         $newHouse = new House();
 
-        if($request->hasFile('thumbnail')){
+        if ($request->hasFile('thumbnail')) {
             $path = Storage::put('houses_img', $request->thumbnail);
             $formData['thumbnail'] = $path;
             $newHouse->thumbnail = $formData['thumbnail'];
         };
- 
+
 
         $newHouse->fill($formData);
 
@@ -107,17 +107,17 @@ class HouseController extends Controller
      */
     public function update(Request $request, House $house)
     {
+
         $formData = $request->all();
 
         $this->validation($formData);
 
-        if($request->hasFile('thumbnail')){
-            if($house->thumbnail){
+        if ($request->hasFile('thumbnail')) {
+            if ($house->thumbnail) {
                 Storage::delete($house->thumbnail);
             }
             $path = Storage::put('houses_img', $request->thumbnail);
             $formData['thumbnail'] = $path;
-            
         }
 
         $house->update($formData);
@@ -128,6 +128,14 @@ class HouseController extends Controller
             $house->services()->detach();
         }
 
+        $houseVisibility = House::find($request->house_id);
+        if ($houseVisibility->visibility) {
+            $houseVisibility->visibility = 0;
+        } else {
+            $houseVisibility->visibility = 1;
+        }
+
+        $houseVisibility->update();
 
         return redirect()->route('houses.show', $house);
     }
@@ -140,10 +148,10 @@ class HouseController extends Controller
      */
     public function destroy(House $house)
     {
-        if($house->thumbnail){
+        if ($house->thumbnail) {
             Storage::delete($house->thumbnail);
         }
-        
+
         $house->delete();
         return redirect()->route('welcome');
     }

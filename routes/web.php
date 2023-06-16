@@ -15,21 +15,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function() {
+Route::get('/', function () {
     return view('auth.login');
 });
 
 Route::middleware(['auth', 'verified'])
-    ->group(function() {
-    Route::get('/', function() {
-        return redirect()->action([HouseController::class, 'index']);;
-    });    
-    Route::resource('houses', HouseController::class)->names([
-        'index'=>'welcome',
-        'create'=>'houses.create', 
-        'show'=>'houses.show'
-    ]);
-});
+    ->group(function () {
+        Route::get('/', function () {
+            return redirect()->action([HouseController::class, 'index']);;
+        });
+        Route::resource('houses', HouseController::class)->names([
+            'index' => 'welcome',
+            'create' => 'houses.create',
+            'show' => 'houses.show'
+        ]);
+
+        Route::post('houses', 'HouseController@update');
+    });
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -37,4 +39,5 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+
+require __DIR__ . '/auth.php';
