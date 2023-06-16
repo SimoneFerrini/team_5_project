@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VisibilityController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,7 +31,7 @@ Route::middleware(['auth', 'verified'])
             'show' => 'houses.show'
         ]);
 
-        Route::post('houses', 'HouseController@update');
+        Route::post('/visibility/{house}', [VisibilityController::class, 'index'])->name('visibility.index');
     });
 
 Route::middleware('auth')->group(function () {

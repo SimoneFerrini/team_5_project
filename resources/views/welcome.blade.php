@@ -31,6 +31,10 @@
               </div>
             </div>
           </div>
+          <form action="{{ route('visibility.index', $house) }}" method="POST">
+            @csrf
+            <button type="submit">{{$house->visibility ? 'Visibile in pagina' : 'Non visibile in pagina'}}</button>
+          </form>
         @endforeach
     </div>
     <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-3">

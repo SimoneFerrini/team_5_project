@@ -128,15 +128,6 @@ class HouseController extends Controller
             $house->services()->detach();
         }
 
-        $houseVisibility = House::find($request->house_id);
-        if ($houseVisibility->visibility) {
-            $houseVisibility->visibility = 0;
-        } else {
-            $houseVisibility->visibility = 1;
-        }
-
-        $houseVisibility->update();
-
         return redirect()->route('houses.show', $house);
     }
 
