@@ -24,5 +24,7 @@
           </div>
         @endforeach
     </div>
-    <a href="{{route('houses.create')}}" class="btn btn-primary">Aggiungi una casa</a>
+    <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
+      <button class="btn btn-secondary" type="button"><a href="{{route('houses.create')}}" class="link-light">Aggiungi una casa</a></button>
+    </div>
 @endsection
