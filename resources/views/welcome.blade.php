@@ -3,7 +3,7 @@
     <div class="container d-flex flex-wrap">
         @foreach ($houses as $house)
         <div class="card" style="width: 18rem;">
-            <img src="{{$house->thumbnail}}" class="card-img-top" alt="Immagine di copertina">
+            <img src="{{asset('storage/'. $house->thumbnail)}}" class="card-img-top" alt="Immagine di copertina">
             <div class="card-body">
               <h5 class="card-title">{{$house->title}}</h5>
               <p class="card-text">{{$house->description}}</p>

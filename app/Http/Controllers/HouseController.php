@@ -6,6 +6,7 @@ use App\Models\House;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class HouseController extends Controller
@@ -47,10 +48,14 @@ class HouseController extends Controller
 
         $newHouse = new House();
 
-        if($request-)hasFile('thumbnail')
+        if($request->hasFile('thumbnail')){
+            $path = Storage::put('houses_img', $request->thumbnail);
+            $formData['thumbnail'] = $path;
+            $newHouse->thumbnail = $formData['thumbnail'];
+        };
  
 
-        $n>ewHouse->fill($formData);
+        $newHouse->fill($formData);
 
         $newHouse->user_id = Auth::id();
 
@@ -103,6 +108,14 @@ class HouseController extends Controller
 
         $this->validation($formData);
 
+        if($request->hasFile('thumbnail')){
+            if($house->thumbnail){
+                Storage::delete($house->thumbnail);
+            }
+            $path = Storage::put('houses_img', $request->thumbnail);
+            $formData['thumbnail'] = $path;
+            
+        }
 
         $house->update($formData);
 
@@ -124,8 +137,11 @@ class HouseController extends Controller
      */
     public function destroy(House $house)
     {
+        if($house->thumbnail){
+            Storage::delete($house->thumbnail);
+        }
+        
         $house->delete();
-
         return redirect()->route('welcome');
     }
 

@@ -4,7 +4,7 @@ return $houses = [
     [   
         'user_id'=>1,
         'title'=> 'Masseria De Vivo',
-        'description'=> 'Situated in Manduria, 36 km from Taranto Sotterranea, 38 km from National Archaeological Museum of Taranto Marta and 38 km from Castello Aragonese, La Filumena features accommodation with a balcony and free WiFi. Housed in a building dating from 2020, this holiday home is 40 km from the Taranto Cathedral. The air-conditioned holiday home consists of 1 bedroom, a living room, a fully equipped kitchen with a fridge, and 2 bathrooms with a bidet and a hairdryer. Towels and bed linen are available',
+        'description'=> 'Situated in Manduria, La Filumena features accommodation with a balcony and free WiFi. Towels and bed linen are available',
         'rooms'=> 12,
         'beds'=> 10,
         'bathrooms'=> 3,
@@ -110,7 +110,7 @@ return $houses = [
         'house_number'=> 17,
         'latitude'=>  1.01,
         'longitude'=> 1.02,
-        'thumbnail'=> 'https://gallery-cdn.tiscali.it/repository/1385/650x468/1384302.jpg',
+        'thumbnail'=> 'public/storage/houses_img/https://gallery-cdn.tiscali.it/repository/1385/650x468/1384302.jpg',
         'visibility'=> true,
     ],
     [   
