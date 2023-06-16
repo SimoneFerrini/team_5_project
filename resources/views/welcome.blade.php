@@ -25,26 +25,28 @@
             <div class="card-body">
               <div class="container d-flex align-items-center gap-2">
                 <button class="btn btn-secondary"><a href="{{route('houses.show', $house)}}" class="link-light">Guarda la tua casa</a></button> 
-                <div class="form-check form-switch">
-                  <input name="visibility" class="form-check-input" type="checkbox"  role="switch" id="flexSwitchCheckChecked" checked>
-                </div>
               </div>
             </div>
           </div>
           <form action="{{ route('visibility.index', $house) }}" method="POST">
             @csrf
-            <button type="submit">{{$house->visibility ? 'Visibile in pagina' : 'Non visibile in pagina'}}</button>
+            <div class="form-check form-switch">
+              <input name="visibility" class="form-check-input submitCheckbox" type="checkbox" role="switch" {{  $house->visibility ? "checked" : "" }}>
+            </div>
           </form>
         @endforeach
     </div>
     <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
       <button class="btn btn-secondary" type="button"><a href="{{route('houses.create')}}" class="link-light">Aggiungi una casa</a></button>
     </div>
+    
+    <script>
+      let checkboxes = document.querySelectorAll(".submitCheckbox");
+
+      checkboxes.forEach(function(checkbox) { checkbox.addEventListener('click', function() {
+        this.closest('form').submit();
+      });
+  });
+    </script>
 @endsection
 
-{{-- <form action="/houses" method="POST">
-  <input type="hidded" name="houses_id" value="{{$house->visibility}}"/>
-  <button type="submit">
-    bottone
-  </button>
-</form> --}}
