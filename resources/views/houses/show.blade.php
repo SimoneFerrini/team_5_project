@@ -24,7 +24,7 @@
       <hr>
       <button class="btn btn-secondary mb-3"><a href="{{route('houses.edit', $house)}}" class="link-light">Modifica la tua casa</a></button>
       <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
-        Cancella casa
+        Elimina casa
       </button>
       @endif
 </div>
@@ -35,7 +35,7 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Sei sicuro di voler cancellare la casa?</h5>
+            <h5 class="modal-title" id="exampleModalLongTitle">Sei sicuro di voler eliminare la casa?</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -44,12 +44,12 @@
             Attenzione! L'azione sarà irreversibile.
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Torna indietro</button>
             <form action="{{route('houses.destroy', $house)}}" method="POST">
               @csrf
               @method('DELETE')
 
-              <button class="btn btn-danger" type="submit">DELETE</button>
+              <button class="btn btn-danger" type="submit">Elimina</button>
           </form>
           </div>
         </div>
