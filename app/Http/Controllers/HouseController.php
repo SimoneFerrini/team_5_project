@@ -199,9 +199,11 @@ class HouseController extends Controller
 
     public function getCoordinates(House $newHouse, $formData)
     {
-        $response = Http::get('https://api.tomtom.com/search/2/structuredGeocode.json?countryCode=IT' . '&streetNumber=' . $formData['house_number'] . '&streetName=' . $formData['street'] . '&municipality=' . $formData['city'] . '&postalCode=' . $formData['postal_code'] . '&view=Unified&key=5dkGa9b2PDdCXlAFGvkpEYG83DUj9jgv');
+        $response = Http::get('https://api.tomtom.com/search/2/structuredGeocode.json?countryCode=IT' . '&streetNumber=' . $formData['house_number'] . '&streetName=' . $formData['street'] . '&municipality=' . $formData['city'] . '&postalCode=' . $formData['postal_code'] . '&maxFuzzyLevel=1' . '&view=Unified&key=5dkGa9b2PDdCXlAFGvkpEYG83DUj9jgv');
 
         $jsonData = $response->json();
+
+        dd($jsonData);
 
         $newHouse->latitude = $jsonData['results'][0]['position']['lat'];
         $newHouse->longitude = $jsonData['results'][0]['position']['lon'];
