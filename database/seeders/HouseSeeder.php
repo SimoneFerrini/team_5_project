@@ -31,6 +31,7 @@ class HouseSeeder extends Seeder
             $newHouse->street =$singleHouse['street'];
             $newHouse->city =$singleHouse['city'];
             $newHouse->house_number =$singleHouse['house_number'];
+            $newHouse->postal_code =$singleHouse['postal_code'];
             $newHouse->latitude =$singleHouse['latitude'];
             $newHouse->longitude =$singleHouse['longitude'];
             $newHouse->thumbnail =$singleHouse['thumbnail'];

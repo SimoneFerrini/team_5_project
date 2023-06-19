@@ -6,8 +6,10 @@ use App\Models\House;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
+
 
 class HouseController extends Controller
 {
@@ -42,11 +44,14 @@ class HouseController extends Controller
      */
     public function store(Request $request)
     {
+
         $formData = $request->all();
 
         $this->validation($formData);
 
         $newHouse = new House();
+
+        $this->getCoordinates($newHouse);
 
         if ($request->hasFile('thumbnail')) {
             $path = Storage::put('houses_img', $request->thumbnail);
@@ -80,6 +85,7 @@ class HouseController extends Controller
     public function show(House $house)
     {
         $user_id = Auth::id();
+        
         return view('houses.show', compact('house', 'user_id'));
     }
 
@@ -111,6 +117,8 @@ class HouseController extends Controller
         $formData = $request->all();
 
         $this->validation($formData);
+
+        $house = $this->getCoordinates($house);
 
         if ($request->hasFile('thumbnail')) {
             if ($house->thumbnail) {
@@ -184,8 +192,20 @@ class HouseController extends Controller
             "house_number.max" => 'Il numero civico non può superiore a 32000.',
             "thumbnail.required" => 'Inserisci una foto.',
             "thumbnail.image" => 'Il tipo di file non è supportato.',
-            "thumbnail.max" => "Il peso dell'immagine non va bene.",
+            "thumbnail.max" => "Le dimensioni del file sono troppo grandi.",
         ])->validate();
         return $validator;
+    }
+
+    public function getCoordinates(House $newHouse) {
+        $response = Http::get('https://api.tomtom.com/search/2/structuredGeocode.json?countryCode=IT&streetNumber=2&streetName=via%20de%20vivo%20&municipality=castellabate&postalCode=84048&view=Unified&key=5dkGa9b2PDdCXlAFGvkpEYG83DUj9jgv');
+
+        $jsonData = $response->json();
+
+        $newHouse->latitude = $jsonData['results'][0]['position']['lat'];
+        $newHouse->longitude = $jsonData['results'][0]['position']['lon'];
+
+       return $newHouse;
+
     }
 }
