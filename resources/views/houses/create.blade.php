@@ -85,6 +85,15 @@
             @enderror
         </div>
         <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default">CAP *</span>
+            <input value="{{old('postal_code')}}" name="postal_code" type="text" class="form-control @error('postal_code') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            @error('city')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+            @enderror
+        </div>
+        <div class="input-group mb-3">
             <input name="thumbnail" type="file" class="form-control @error('thumbnail') is-invalid @enderror" id="inputGroupFile02" required>
             @error('thumbnail')
                 <div class="invalid-feedback">

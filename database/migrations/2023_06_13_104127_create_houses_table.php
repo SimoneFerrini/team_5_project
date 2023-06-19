@@ -26,8 +26,9 @@ return new class extends Migration
             $table->tinyInteger('bathrooms')->required();
             $table->smallInteger('square_mt')->required();
             $table->string('street')->required();
-            $table->string('city')->required();
             $table->smallInteger('house_number')->required();
+            $table->string('city')->required();
+            $table->string('postal_code')->required();
             $table->double('latitude')->nullable();
             $table->double('longitude')->nullable();
             $table->text('thumbnail')->required();
