@@ -4,12 +4,20 @@
     <form action="{{route('houses.store')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="input-group mb-3">
-            <span for="title" class="input-group-text" id="inputGroup-sizing-default">Nome *</span>
-            <input value="{{old('title')}}" name="title" id="title" type="text" class="form-control @error('title') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-            @error('title')
+            <input name="thumbnail" type="file" class="form-control @error('thumbnail') is-invalid @enderror" id="inputGroupFile02" required>
+            @error('thumbnail')
                 <div class="invalid-feedback">
                     {{$message}}
                 </div>
+            @enderror
+        </div>
+        <div class="input-group mb-3">
+            <span for="title" class="input-group-text" id="inputGroup-sizing-default">Nome *</span>
+            <input value="{{old('title')}}" name="title" id="title" type="text" class="form-control @error('title') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            @error('title')
+            <div class="invalid-feedback">
+                {{$message}}
+            </div>
             @enderror
         </div>
         <div class="input-group mb-3">
@@ -94,11 +102,12 @@
             @enderror
         </div>
         <div class="input-group mb-3">
-            <input name="thumbnail" type="file" class="form-control @error('thumbnail') is-invalid @enderror" id="inputGroupFile02" required>
-            @error('thumbnail')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
+            <div name="latitude" id="latitude" type="text" class=" @error('latitude') is-invalid @enderror"></div>
+            @error('latitude')
+            <div class="invalid-feedback">
+                {{$message}}
+            </div>
+              
             @enderror
         </div>
         <div class="container d-flex flex-wrap gap-3 pb-4">

@@ -224,7 +224,10 @@ class HouseController extends Controller
         $validator = Validator::make($newHouse, [
             'latitude' => 'required|min:0',
             'longitude' => 'required|min:0',
-        ],)->validate();
+        ], [
+            "latitude.required" => "L'indirizzo non è valido",
+            "longitude.required" => "L'indirizzo non è valido",
+        ])->validate();
         return $validator;
     }
 }
