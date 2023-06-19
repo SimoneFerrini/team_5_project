@@ -203,8 +203,6 @@ class HouseController extends Controller
 
         $jsonData = $response->json();
 
-        dd($response);
-
         $newHouse->latitude = $jsonData['results'][0]['position']['lat'];
         $newHouse->longitude = $jsonData['results'][0]['position']['lon'];
 
