@@ -193,7 +193,7 @@ class HouseController extends Controller
             "house_number.max" => 'Il numero civico non può superiore a 32000.',
             "postal_code.required" => 'Devi insirire un codice postale',
             "postal_code.max" => 'Il CAP italiano deve avere 5 caratteri',
-            "postal_code.min" => 'Il CAP italiano deve avere 5 caratteri', 
+            "postal_code.min" => 'Il CAP italiano deve avere 5 caratteri',
             "thumbnail.required" => 'Inserisci una foto.',
             "thumbnail.image" => 'Il tipo di file non è supportato.',
             "thumbnail.max" => "Le dimensioni del file sono troppo grandi.",
@@ -206,8 +206,6 @@ class HouseController extends Controller
         $response = Http::get('https://api.tomtom.com/search/2/structuredGeocode.json?countryCode=IT' . '&streetNumber=' . $formData['house_number'] . '&streetName=' . $formData['street'] . '&municipality=' . $formData['city'] . '&postalCode=' . $formData['postal_code'] . '&maxFuzzyLevel=1' . '&view=Unified&key=5dkGa9b2PDdCXlAFGvkpEYG83DUj9jgv');
 
         $jsonData = $response->json();
-
-        dd($jsonData);
 
         $newHouse->latitude = $jsonData['results'][0]['position']['lat'];
         $newHouse->longitude = $jsonData['results'][0]['position']['lon'];
