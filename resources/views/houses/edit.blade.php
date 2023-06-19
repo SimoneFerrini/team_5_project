@@ -90,8 +90,8 @@
       </div>
       <div class="input-group mb-3">
         <span class="input-group-text" id="inputGroup-sizing-default">CAP *</span>
-        <input value="{{old('postal_code')?? $house->postal_code}}" name="postal_code" type="text" class="form-control @error('postal_code') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-        @error('city')
+        <input value="{{old('postal_code')?? $house->postal_code}}" name="postal_code" type="number" class="form-control @error('postal_code') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+        @error('postal_code')
             <div class="invalid-feedback">
                 {{$message}}
             </div>

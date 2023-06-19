@@ -167,6 +167,7 @@ class HouseController extends Controller
             'street' => 'required|',
             'city' => 'required|',
             'house_number' => 'required|integer|min:0|max:32000',
+            'postal_code' => 'required|min:5|max:5',
             'thumbnail' => 'required|image|max:2000',
         ], [
             "title.max" => 'Il titolo può avere al massimo :max caratteri.',
@@ -190,6 +191,9 @@ class HouseController extends Controller
             "house_number.required" => 'Inserisci il numero civico della casa.',
             "house_number.min" => 'Il numero civico non può essere negativo.',
             "house_number.max" => 'Il numero civico non può superiore a 32000.',
+            "postal_code.required" => 'Devi insirire un codice postale',
+            "postal_code.max" => 'Il CAP italiano deve avere 5 caratteri',
+            "postal_code.min" => 'Il CAP italiano deve avere 5 caratteri', 
             "thumbnail.required" => 'Inserisci una foto.',
             "thumbnail.image" => 'Il tipo di file non è supportato.',
             "thumbnail.max" => "Le dimensioni del file sono troppo grandi.",
