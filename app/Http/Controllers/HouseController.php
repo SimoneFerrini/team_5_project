@@ -47,11 +47,11 @@ class HouseController extends Controller
 
         $formData = $request->all();
 
-        $this->validation($formData);
-
         $newHouse = new House();
 
         $this->getCoordinates($newHouse, $formData);
+
+        $this->validation($formData);
 
         if ($request->hasFile('thumbnail')) {
             $path = Storage::put('houses_img', $request->thumbnail);
@@ -201,15 +201,30 @@ class HouseController extends Controller
         return $validator;
     }
 
+
     public function getCoordinates(House $newHouse, $formData)
     {
         $response = Http::get('https://api.tomtom.com/search/2/structuredGeocode.json?countryCode=IT' . '&streetNumber=' . $formData['house_number'] . '&streetName=' . $formData['street'] . '&municipality=' . $formData['city'] . '&postalCode=' . $formData['postal_code'] . '&maxFuzzyLevel=1' . '&view=Unified&key=5dkGa9b2PDdCXlAFGvkpEYG83DUj9jgv');
 
         $jsonData = $response->json();
 
-        $newHouse->latitude = $jsonData['results'][0]['position']['lat'];
-        $newHouse->longitude = $jsonData['results'][0]['position']['lon'];
+        if ($jsonData['results']) {
+            $newHouse->latitude = $jsonData['results'][0]['position']['lat'];
+            $newHouse->longitude = $jsonData['results'][0]['position']['lon'];
+        } else {
+            $this->validationLat(['latitude' => $newHouse->latitude, 'longitude' => $newHouse->longitude,]);
+        };
+
 
         return $newHouse;
+    }
+
+    public function validationLat($newHouse)
+    {
+        $validator = Validator::make($newHouse, [
+            'latitude' => 'required|min:0',
+            'longitude' => 'required|min:0',
+        ],)->validate();
+        return $validator;
     }
 }
