@@ -51,7 +51,7 @@ class HouseController extends Controller
 
         $newHouse = new House();
 
-        $this->getCoordinates($newHouse);
+        $this->getCoordinates($newHouse, $formData);
 
         if ($request->hasFile('thumbnail')) {
             $path = Storage::put('houses_img', $request->thumbnail);
@@ -85,7 +85,7 @@ class HouseController extends Controller
     public function show(House $house)
     {
         $user_id = Auth::id();
-        
+
         return view('houses.show', compact('house', 'user_id'));
     }
 
@@ -118,7 +118,7 @@ class HouseController extends Controller
 
         $this->validation($formData);
 
-        $house = $this->getCoordinates($house);
+        $house = $this->getCoordinates($house, $formData);
 
         if ($request->hasFile('thumbnail')) {
             if ($house->thumbnail) {
@@ -197,15 +197,17 @@ class HouseController extends Controller
         return $validator;
     }
 
-    public function getCoordinates(House $newHouse) {
-        $response = Http::get('https://api.tomtom.com/search/2/structuredGeocode.json?countryCode=IT&streetNumber=2&streetName=via%20de%20vivo%20&municipality=castellabate&postalCode=84048&view=Unified&key=5dkGa9b2PDdCXlAFGvkpEYG83DUj9jgv');
+    public function getCoordinates(House $newHouse, $formData)
+    {
+        $response = Http::get('https://api.tomtom.com/search/2/structuredGeocode.json?countryCode=IT' . '&streetNumber=' . $formData['house_number'] . '&streetName=' . $formData['street'] . '&municipality=' . $formData['city'] . '&postalCode=' . $formData['postal_code'] . '&view=Unified&key=5dkGa9b2PDdCXlAFGvkpEYG83DUj9jgv');
 
         $jsonData = $response->json();
+
+        dd($response);
 
         $newHouse->latitude = $jsonData['results'][0]['position']['lat'];
         $newHouse->longitude = $jsonData['results'][0]['position']['lon'];
 
-       return $newHouse;
-
+        return $newHouse;
     }
 }
