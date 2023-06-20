@@ -107,7 +107,6 @@
             <div class="invalid-feedback">
                 {{$message}}
             </div>
-              
             @enderror
         </div>
         <div class="container d-flex flex-wrap gap-3 pb-4">
