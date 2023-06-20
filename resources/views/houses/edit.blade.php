@@ -14,7 +14,9 @@
       @csrf
       @method('PUT')
       <div class="input-group mb-3">
-          <input name="thumbnail" type="file" class="form-control @error('thumbnail') is-invalid @enderror" id="inputGroupFile02" placeholder="Obbliga" required>
+        <div id="img-validation" class="d-flex flex-column " style="color: red; font-size: .8em">
+            <input name="thumbnail" type="file" class="form-control @error('thumbnail') is-invalid @enderror" id="inputGroupFile02" placeholder="Obbliga" required>
+        </div>
           @error('thumbnail')
           <div class="invalid-feedback">
               {{$message}}
@@ -24,7 +26,6 @@
                 <span class="input-group-text">*</span>
             </div>
       </div>
-       
       <div class="input-group mb-3">
           <span for="title" class="input-group-text" id="inputGroup-sizing-default">Nome</span>
           <input value="{{old('title') ?? $house->title}}" name="title" id="title" type="text" class="form-control @error('title') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
@@ -168,10 +169,39 @@
           </div>
           @endforeach
       </div>       
-      <button type="submit" class="btn btn-secondary">Modifica</button>
+      <button type="submit" class="btn btn-secondary" id="btnLoad" value="Load">Modifica</button>
       <hr>
       <span>* I campi sono obbligatori!</span>
   </form>
   @endif
 </div>
+<script>
+    document.getElementById("btnLoad").addEventListener("click", function showFileSize() {
+    if (!window.FileReader) { // questo controllo è solo per il caso RARISSIMO in cui il browser non supporti il tipo di file
+        console.log("Questo file API non è supportato dal browser");
+        return;
+    }
+    let input = document.getElementById('inputGroupFile02');
+    if (!input.files) { // questo controllo è solo per il caso RARISSIMO in cui il browser non supporti il tipo di file
+        console.error("Questo browser non supporta il tipo di file");
+    } else if (!input.files[0]) {
+        addPara("Devi scegliere un'immagine prima di poter caricare la tua casa");
+    } else {
+        var file = input.files[0];
+        addPara("Il file " + file.name + " è di " + file.size + " bytes e non può essere più grande di 2Mb");
+    }
+});
+
+function addPara(text) {
+    if(document.getElementById('img-error')){
+        let error = document.getElementById('img-error');
+        error.remove();
+    } 
+    let p = document.createElement("p");
+    p.textContent = text;
+    p.setAttribute('id', 'img-error');
+    let imgValidation = document.getElementById('img-validation');
+    imgValidation.append(p);
+}
+</script> 
 @endsection
