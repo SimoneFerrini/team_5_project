@@ -5,3 +5,22 @@ a {
     text-decoration: none;
 }
 
+
+.my-container{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    .img-container{
+    
+    width: 200px;
+    height: auto;
+    object-fit: cover;
+    object-position: bottom;
+    margin: 1em;
+    
+        img{
+            width: 100%;
+        }
+    }
+}
+

@@ -31,7 +31,7 @@
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Stanze *</span>
-            <input value="{{old('rooms')}}" name="rooms" type="number" class="form-control @error('rooms') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            <input value="{{old('rooms')}}" name="rooms" type="number" min="1" max="50" class="form-control @error('rooms') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             @error('rooms')
                 <div class="invalid-feedback">
                     {{$message}}
@@ -40,7 +40,7 @@
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Letti *</span>
-            <input value="{{old('beds')}}" name="beds" type="number" class="form-control @error('beds') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            <input value="{{old('beds')}}" name="beds" type="number" min="1" max="30" class="form-control @error('beds') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             @error('beds')
                 <div class="invalid-feedback">
                     {{$message}}
@@ -49,7 +49,7 @@
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Bagni *</span>
-            <input value="{{old('bathrooms')}}" name="bathrooms" type="number" class="form-control @error('bathrooms') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            <input value="{{old('bathrooms')}}" name="bathrooms" type="number" min="1" max="15" class="form-control @error('bathrooms') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             @error('bathrooms')
                 <div class="invalid-feedback">
                     {{$message}}
@@ -58,7 +58,7 @@
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Metri quadrati *</span>
-            <input value="{{old('square_mt')}}" name="square_mt" type="number" class="form-control @error('square_mt') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            <input value="{{old('square_mt')}}" name="square_mt" type="number" min="1" max="32000" class="form-control @error('square_mt') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             @error('square_mt')
                 <div class="invalid-feedback">
                     {{$message}}
@@ -76,7 +76,7 @@
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">Numero Civico *</span>
-            <input value="{{old('house_number')}}" name="house_number" type="number" class="form-control @error('house_number') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            <input value="{{old('house_number')}}" name="house_number" type="number" min="1" max="32000" class="form-control @error('house_number') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             @error('house_number')
                 <div class="invalid-feedback">
                     {{$message}}
@@ -94,7 +94,7 @@
         </div>
         <div class="input-group mb-3">
             <span class="input-group-text" id="inputGroup-sizing-default">CAP *</span>
-            <input value="{{old('postal_code')}}" name="postal_code" type="number" class="form-control @error('postal_code') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+            <input value="{{old('postal_code')}}" name="postal_code" type="number" minlength="5" maxlength="5" class="form-control @error('postal_code') is-invalid @enderror" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
             @error('postal_code')
                 <div class="invalid-feedback">
                     {{$message}}
