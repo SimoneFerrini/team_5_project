@@ -212,14 +212,14 @@ class HouseController extends Controller
             $newHouse->latitude = $jsonData['results'][0]['position']['lat'];
             $newHouse->longitude = $jsonData['results'][0]['position']['lon'];
         } else {
-            $this->validationLat(['latitude' => $newHouse->latitude, 'longitude' => $newHouse->longitude,]);
+            $this->validateCoordinates(['latitude' => $newHouse->latitude, 'longitude' => $newHouse->longitude,]);
         };
 
 
         return $newHouse;
     }
 
-    public function validationLat($newHouse)
+    public function validateCoordinates($newHouse)
     {
         $validator = Validator::make($newHouse, [
             'latitude' => 'required|min:0',
