@@ -22,18 +22,18 @@
             </ul>
 
             
-            <div class="card-body">
+            <div class="card-body d-flex gap-3 align-items-center">
               <div class="container d-flex align-items-center gap-2">
                 <button class="btn btn-secondary"><a href="{{route('houses.show', $house)}}" class="link-light">Guarda la tua casa</a></button> 
               </div>
+              <form action="{{ route('visibility.index', $house) }}" method="POST">
+                @csrf
+                <div class="form-check form-switch">
+                  <input name="visibility" class="form-check-input submitCheckbox" type="checkbox" role="switch" {{  $house->visibility ? "checked" : "" }}>
+                </div>
+              </form>
             </div>
           </div>
-          <form action="{{ route('visibility.index', $house) }}" method="POST">
-            @csrf
-            <div class="form-check form-switch">
-              <input name="visibility" class="form-check-input submitCheckbox" type="checkbox" role="switch" {{  $house->visibility ? "checked" : "" }}>
-            </div>
-          </form>
         @endforeach
     </div>
     <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
