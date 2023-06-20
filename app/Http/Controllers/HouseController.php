@@ -208,11 +208,12 @@ class HouseController extends Controller
 
         $jsonData = $response->json();
 
-        
         if ($newHouse->latitude) {
+            $newHouse->latitude = null;
+            $newHouse->longitude  = null;
             if ($jsonData['results']) {
-                $newHouse->latitude->update($jsonData['results'][0]['position']['lat']);
-                $newHouse->longitude->update($jsonData['results'][0]['position']['lon']);
+                $newHouse->latitude = $jsonData['results'][0]['position']['lat'];
+                $newHouse->longitude = $jsonData['results'][0]['position']['lon'];
             } else {
                 $this->validateCoordinates(['latitude' => $newHouse->latitude, 'longitude' => $newHouse->longitude,]);
             }
