@@ -75,7 +75,7 @@
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
+                                    <strong>La password deve contenere almeno 8 caratteri!</strong>
                                 </span>
                                 @enderror
                             </div>
@@ -105,7 +105,7 @@
 </div>
 
 <script>
-let check = function() {
+const check = function() {
     if (document.getElementById('password').value ==
       document.getElementById('password-confirm').value) {
         if(document.getElementById('password').value.length == 0){
