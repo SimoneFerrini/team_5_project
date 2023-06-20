@@ -163,8 +163,7 @@
 function validateSize(input) {
   const fileSize = input.files[0].size / 1024 / 1024; // in MiB
   if (fileSize > 2) {
-    alert('File size exceeds 2 MiB');
-    // $(file).val(''); //for clearing with Jquery
+    alert('Il file non può essere più grande di 2mb');
   } else {
     // Proceed further
   }
