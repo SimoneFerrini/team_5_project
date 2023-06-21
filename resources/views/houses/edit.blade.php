@@ -10,7 +10,7 @@
         <img src="{{asset('storage/'. $house->thumbnail)}}" alt="img">
     </div>
   </div>
-  <form action="{{route('houses.update', $house)}}" method="POST" enctype="multipart/form-data">
+  <form action="{{route('houses.update', $house)}}" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
       @csrf
       @method('PUT')
       <div class="input-group mb-3">
@@ -154,7 +154,7 @@
             </div>
             @enderror
         </div>
-      <div class="container d-flex flex-wrap gap-3 pb-4">
+      <div class="container d-flex flex-wrap gap-3 pb-4" id="services-container">
           @foreach ($services as $service)
           <div class="form-check d-flex gap-3">
               @if($errors->any())
@@ -186,3 +186,25 @@ function validateSize(input) {
 }
 </script> 
 @endsection
+
+
+<script>
+    function validateForm() {
+        var checkboxes = document.querySelectorAll('#services-container input[type="checkbox"]');
+        var isChecked = false;
+    
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                isChecked = true;
+                break;
+            }
+        }
+    
+        if (!isChecked) {
+            alert('Seleziona almeno un servizio!');
+            return false; // Impedisce l'invio del modulo se nessuna casella di controllo è stata spuntata
+        }
+    
+        return true; // Invia il modulo se almeno una casella di controllo è stata spuntata
+    }
+    </script>

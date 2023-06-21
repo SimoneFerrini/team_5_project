@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container mt-5">
-    <form action="{{route('houses.store')}}" method="POST" enctype="multipart/form-data">
+    <form action="{{route('houses.store')}}" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
         @csrf
         <div class="input-group mb-3">
             <div id="img-validation" class="d-flex flex-column " style="color: red; font-size: .8em">
@@ -111,7 +111,7 @@
             </div>
             @enderror
         </div>
-        <div class="container d-flex flex-wrap gap-3 pb-4">
+        <div class="container d-flex flex-wrap gap-3 pb-4" id="services-container">
             @foreach ($services as $service)   
             <div class="form-check d-flex gap-3 @error('services[]') is-invalid @enderror">
                 <input name="services[]" class="form-check-input" type="checkbox" value="{{$service->id}}" id="services[]" @checked(in_array($service->id, old('services', [])))>
@@ -148,4 +148,25 @@ function validateSize(input) {
 
 </script> 
 @endsection
+
+<script>
+    function validateForm() {
+        var checkboxes = document.querySelectorAll('#services-container input[type="checkbox"]');
+        var isChecked = false;
+    
+        for (var i = 0; i < checkboxes.length; i++) {
+            if (checkboxes[i].checked) {
+                isChecked = true;
+                break;
+            }
+        }
+    
+        if (!isChecked) {
+            alert('Seleziona almeno un servizio!');
+            return false; // Impedisce l'invio del modulo se nessuna casella di controllo è stata spuntata
+        }
+    
+        return true; // Invia il modulo se almeno una casella di controllo è stata spuntata
+    }
+    </script>
 
