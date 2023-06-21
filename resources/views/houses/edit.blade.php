@@ -15,7 +15,7 @@
       @method('PUT')
       <div class="input-group mb-3">
         <div id="img-validation" class="d-flex flex-column " style="color: red; font-size: .8em">
-            <input name="thumbnail" type="file" class="form-control" id="inputGroupFile02" placeholder="Obbliga" onchange="validateSize(this)" required>
+            <input name="thumbnail" type="file" class="form-control" id="inputGroupFile02" placeholder="Obbliga" onchange="validateSize(this)" >
         </div>
           @error('thumbnail')
           <div class="invalid-feedback">
