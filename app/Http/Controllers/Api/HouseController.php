@@ -15,7 +15,7 @@ class HouseController extends Controller
     public function index()
     {
 
-        $houses = House::with('services');
+        $houses = House::with('services')->get();
 
         return response()->json([
             'success' => true,
