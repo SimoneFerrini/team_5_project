@@ -37,7 +37,7 @@
         @endforeach
     </div>
     <div class="d-grid gap-2 col-6 mx-auto mt-3 mb-3">
-      <button class="btn btn-secondary" type="button"><a href="{{route('houses.create')}}" class="link-light">Aggiungi una casa</a></button>
+      <a href="{{route('houses.create')}}" class="link-light w-100"><button class="btn btn-secondary w-100" type="button">Aggiungi una casa</button></a>
     </div>
     
     <script>
