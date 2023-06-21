@@ -104,7 +104,7 @@
             @enderror
         </div>
         <div class="input-group mb-3">
-            <div name="latitude" id="latitude" type="text" class=" @error('latitude') is-invalid @enderror"></div>
+            <div name="latitude" id="latitude" type="text" class="@error('latitude') is-invalid @enderror"></div>
             @error('latitude')
             <div class="invalid-feedback">
                 {{$message}}
@@ -113,20 +113,25 @@
         </div>
         <div class="container d-flex flex-wrap gap-3 pb-4">
             @foreach ($services as $service)   
-            <div class="form-check d-flex gap-3">
-                <input name="services[]" class="form-check-input" type="checkbox" value="{{$service->id}}" id="flexCheckDefault" @checked(in_array($service->id, old('services', [])))>
+            <div class="form-check d-flex gap-3 @error('services[]') is-invalid @enderror">
+                <input name="services[]" class="form-check-input" type="checkbox" value="{{$service->id}}" id="services[]" @checked(in_array($service->id, old('services', [])))>
                 <label class="form-check-label" for="flexCheckDefault">
                     <i class="{{$service->icon}}"></i> <span>{{$service->name}}</span>
                 </label>
                 
             </div>
             @endforeach
+            @error('services[]')
+                <div class="invalid-feedback">
+                    {{$message}}
+                </div>
+            @enderror
         </div>
             <div class="form-check form-switch pb-4">
                 <input name="visibility" class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckChecked" checked>
                 <label class="form-check-label" for="flexSwitchCheckDefault">Visibilità</label>
             </div>              
-        <button type="submit" class="btn btn-secondary" id="btnLoad" value="Load">Aggiungi</button>
+        <button type="submit" class="btn btn-secondary">Aggiungi</button>
         <hr>
         <span>* I campi sono obbligatori!</span>
     </form>
@@ -140,6 +145,7 @@ function validateSize(input) {
     // Proceed further
   }
 }
+
 </script> 
 @endsection
 
