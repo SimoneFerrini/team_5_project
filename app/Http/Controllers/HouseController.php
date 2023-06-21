@@ -169,6 +169,8 @@ class HouseController extends Controller
             'house_number' => 'required|integer|min:0|max:32000',
             'postal_code' => 'required|min:5|max:5',
             'thumbnail' => 'required|image|max:2000',
+            'services[]' => 'required|min:1',
+
         ], [
             "title.max" => 'Il titolo può avere al massimo :max caratteri.',
             "title.required" => 'Devi inserire un titolo.',
@@ -197,6 +199,9 @@ class HouseController extends Controller
             "thumbnail.required" => 'Inserisci una foto.',
             "thumbnail.image" => 'Il tipo di file non è supportato.',
             "thumbnail.max" => "Le dimensioni del file sono troppo grandi.",
+            "services[].required" => "Scegli almeno un servizio.",
+            "services[].min" => "Scegli almeno un servizio.",
+
         ])->validate();
         return $validator;
     }
