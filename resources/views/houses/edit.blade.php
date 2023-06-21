@@ -15,7 +15,7 @@
       @method('PUT')
       <div class="input-group mb-3">
         <div id="img-validation" class="d-flex flex-column " style="color: red; font-size: .8em">
-            <input name="thumbnail" type="file" class="form-control @error('thumbnail') is-invalid @enderror" id="inputGroupFile02" placeholder="Obbliga" required>
+            <input name="thumbnail" type="file" class="form-control" id="inputGroupFile02" placeholder="Obbliga" onchange="validateSize(this) required>
         </div>
           @error('thumbnail')
           <div class="invalid-feedback">
@@ -176,32 +176,13 @@
   @endif
 </div>
 <script>
-    document.getElementById("btnLoad").addEventListener("click", function showFileSize() {
-    if (!window.FileReader) { // questo controllo è solo per il caso RARISSIMO in cui il browser non supporti il tipo di file
-        console.log("Questo file API non è supportato dal browser");
-        return;
-    }
-    let input = document.getElementById('inputGroupFile02');
-    if (!input.files) { // questo controllo è solo per il caso RARISSIMO in cui il browser non supporti il tipo di file
-        console.error("Questo browser non supporta il tipo di file");
-    } else if (!input.files[0]) {
-        addPara("Devi scegliere un'immagine prima di poter caricare la tua casa");
-    } else {
-        var file = input.files[0];
-        addPara("Il file " + file.name + " è di " + file.size + " bytes e non può essere più grande di 2Mb");
-    }
-});
-
-function addPara(text) {
-    if(document.getElementById('img-error')){
-        let error = document.getElementById('img-error');
-        error.remove();
-    } 
-    let p = document.createElement("p");
-    p.textContent = text;
-    p.setAttribute('id', 'img-error');
-    let imgValidation = document.getElementById('img-validation');
-    imgValidation.append(p);
+function validateSize(input) {
+  const fileSize = input.files[0].size / 1024 / 1024; // in MiB
+  if (fileSize > 2) {
+    alert('Il file non può essere più grande di 2mb');
+  } else {
+    // Proceed further
+  }
 }
 </script> 
 @endsection
