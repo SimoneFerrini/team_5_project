@@ -12,12 +12,15 @@ class HouseController extends Controller
 
 
     //ricordati di aggiungere le altre tabelle collegate ad es, messaggi, statistiche e premium nel with
-    public function index(){
-        $house = House::with('services')->orderBy('house.created_at', 'desc');
+    public function index() {
+
+        $houses = House::all();
+
         return response()->json([
             'success' => true,
-            'results' => $house,
+            'results' => $houses
         ]);
+
     }
 
    // public function show($id){
