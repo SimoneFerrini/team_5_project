@@ -15,16 +15,13 @@
       @method('PUT')
       <div class="input-group mb-3">
         <div id="img-validation" class="d-flex flex-column " style="color: red; font-size: .8em">
-            <input name="thumbnail" type="file" class="form-control" id="inputGroupFile02" placeholder="Obbliga" onchange="validateSize(this)" >
+            <input name="thumbnail" type="file" class="form-control" id="inputGroupFile02" onchange="validateSize(this)" >
         </div>
           @error('thumbnail')
           <div class="invalid-feedback">
               {{$message}}
             </div>
             @enderror
-            <div class="input-group-prepend">
-                <span class="input-group-text">*</span>
-            </div>
       </div>
       <div class="input-group mb-3">
           <span for="title" class="input-group-text" id="inputGroup-sizing-default">Nome</span>
@@ -154,6 +151,7 @@
             </div>
             @enderror
         </div>
+        <span> * Servizi:</span>
       <div class="container d-flex flex-wrap gap-3 pb-4" id="services-container">
           @foreach ($services as $service)
           <div class="form-check d-flex gap-3">

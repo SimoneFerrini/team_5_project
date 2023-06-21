@@ -255,7 +255,6 @@ class HouseController extends Controller
         return $validator;
     }
 
-
     public function getCoordinates(House $newHouse, $formData)
     {
         $response = Http::get('https://api.tomtom.com/search/2/structuredGeocode.json?countryCode=IT' . '&streetNumber=' . $formData['house_number'] . '&streetName=' . $formData['street'] . '&municipality=' . $formData['city'] . '&postalCode=' . $formData['postal_code'] . '&maxFuzzyLevel=1' . '&view=Unified&key=5dkGa9b2PDdCXlAFGvkpEYG83DUj9jgv');
