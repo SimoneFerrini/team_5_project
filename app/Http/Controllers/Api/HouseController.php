@@ -23,20 +23,20 @@ class HouseController extends Controller
         ]);
     }
 
-    // public function show($id){
-    //     $house = House::where('id', $id)->with('services')->first();
-    //
-    //     if($house){
-    //         return response()->json([
-    //             'success' => true,
-    //             'house'=> $house,
-    //         ]);          
-    //     } else {
-    //         return response()->json([
-    //             'success' => false,
-    //             'error'=> 'House not found'
-    //         ]);
-    //     }
-    // }
+     public function show($id){
+         $house = House::where('id', $id)->with('services')->first();
+    
+         if($house){
+             return response()->json([
+                 'success' => true,
+                 'house'=> $house,
+             ]);          
+         } else {
+             return response()->json([
+                 'success' => false,
+                 'error'=> 'House not found'
+             ]);
+         }
+     }
 
 }
