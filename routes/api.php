@@ -21,4 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('houses', [HouseController::class, 'index']);
 
-//Route::get('houses/{id}', [HouseController::class, 'show']);
+Route::get('houses/{id}', [HouseController::class, 'show']);
