@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\HouseController;
 use App\Http\Controllers\Api\ServiceController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,6 +24,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('houses', [HouseController::class, 'index']);
 
 Route::get('services', [ServiceController::class, 'index']);
+
+Route::post('messages', [MessageController::class, 'store']);
 
 
 Route::get('houses/{id}', [HouseController::class, 'show']);

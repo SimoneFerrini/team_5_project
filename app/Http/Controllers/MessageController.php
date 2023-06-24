@@ -35,7 +35,14 @@ class MessageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
+        $response = Message::create($data);
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $response,
+        ], 200);
     }
 
     /**
