@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\House;
 use App\Models\Message;
 use Illuminate\Http\Request;
+
+use App\Http\Controllers\HouseController;
 
 class MessageController extends Controller
 {
@@ -12,9 +15,8 @@ class MessageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Message $message)
     {
-        //
     }
 
     /**
@@ -74,9 +76,15 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Message $message)
+    public function update($id)
     {
-        //
+        $message = Message::find($id);
+
+        $message->update(['read' => true]);
+
+        $house = House::find($message->house_id);
+
+        return redirect()->action([HouseController::class, 'show'], ['house' => $house]);
     }
 
     /**

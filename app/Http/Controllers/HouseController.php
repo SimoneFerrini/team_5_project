@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\House;
+use App\Models\Message;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -86,7 +87,9 @@ class HouseController extends Controller
     {
         $user_id = Auth::id();
 
-        return view('houses.show', compact('house', 'user_id'));
+        $messages = Message::where('house_id', $house->id)->get();
+
+        return view('houses.show', compact('house', 'user_id', 'messages'));
     }
 
     /**
@@ -156,7 +159,7 @@ class HouseController extends Controller
     }
 
     private function validation($formData)
-    {   
+    {
         $validator = Validator::make($formData, [
             'title' => 'required|max:100|min:3',
             'description' => 'required|max:500',
@@ -206,7 +209,7 @@ class HouseController extends Controller
     }
 
     private function validationUpdate($formData)
-    {   
+    {
         $validator = Validator::make($formData, [
             'title' => 'required|max:100|min:3',
             'description' => 'required|max:500',

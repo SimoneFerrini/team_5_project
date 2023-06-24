@@ -22,7 +22,7 @@ return new class extends Migration
             $table->text('text')->required();
             $table->boolean('read');
             $table->string('email', 100)->required();
-            $table->string('name', 100)->required();
+            $table->string('name', 100)->nullable();
 
 
             $table->timestamps();

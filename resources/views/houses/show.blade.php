@@ -27,6 +27,22 @@
         Elimina casa
       </button>
       @endif
+      @foreach ($messages as $message)
+      <div class="message ">
+        <div class="alert mt-2 {{($message->read) ? 'alert-dark' : 'alert-success'}}" role="alert">
+          <h4 style="display :{{($message->read) ? 'none' : 'block'}};" class="alert-heading">Nuovo messaggio!</h4>
+          <p style="{{($message->read) ? 'alert-dark' : 'alert-success'}}"></p>
+          <p>{{$message->text}}</p>
+          <hr>
+          <p class="mb-0">Da: {{$message->email}}</p>
+          <form action="{{ route('messages.update', $message->id)}}" method="POST">
+            @csrf
+            @method('PUT')
+            <button class="mt-2" type="submit">Segna come letto</button>
+          </form>
+        </div>
+      </div>
+      @endforeach
 </div>
 
     {{-- Modal --}}

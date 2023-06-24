@@ -27,5 +27,4 @@ Route::get('services', [ServiceController::class, 'index']);
 
 Route::post('messages', [MessageController::class, 'store']);
 
-
 Route::get('houses/{id}', [HouseController::class, 'show']);

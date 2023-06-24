@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HouseController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VisibilityController;
 use Illuminate\Support\Facades\Route;
@@ -30,6 +31,8 @@ Route::middleware(['auth', 'verified'])
             'create' => 'houses.create',
             'show' => 'houses.show'
         ]);
+
+        Route::put('/houses/{house}', [MessageController::class, 'update'])->name('messages.update');
 
         Route::post('/visibility/{house}', [VisibilityController::class, 'index'])->name('visibility.index');
     });
