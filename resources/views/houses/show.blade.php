@@ -38,8 +38,35 @@
           <form action="{{ route('messages.update', $message->id)}}" method="POST">
             @csrf
             @method('PUT')
-            <button class="mt-2" type="submit">Segna come letto</button>
+            <button style="display :{{($message->read) ? 'none' : 'block'}};" class="mt-2" type="submit">Segna come letto</button>
           </form>
+          <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#modalMessageDelete">
+            Elimina casa
+          </button>
+        </div>
+      </div>
+      <div class="modal fade" id="modalMessageDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">Sei sicuro di voler eliminare il messaggio?</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&Chi;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Attenzione! L'azione sarà irreversibile.
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Torna indietro</button>
+              <form action="{{route('messages.destroy', $message->id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+      
+                <button class="btn btn-danger" type="submit">Elimina</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
       @endforeach
@@ -48,28 +75,28 @@
     {{-- Modal --}}
 
 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLongTitle">Sei sicuro di voler eliminare la casa?</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&Chi;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Attenzione! L'azione sarà irreversibile.
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Torna indietro</button>
-            <form action="{{route('houses.destroy', $house)}}" method="POST">
-              @csrf
-              @method('DELETE')
-
-              <button class="btn btn-danger" type="submit">Elimina</button>
-          </form>
-          </div>
-        </div>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Sei sicuro di voler eliminare la casa?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&Chi;</span>
+        </button>
       </div>
-  
+      <div class="modal-body">
+        Attenzione! L'azione sarà irreversibile.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Torna indietro</button>
+        <form action="{{route('houses.destroy', $house)}}" method="POST">
+          @csrf
+          @method('DELETE')
+          <button class="btn btn-danger" type="submit">Elimina</button>
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 @endsection

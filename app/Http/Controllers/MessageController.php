@@ -93,8 +93,14 @@ class MessageController extends Controller
      * @param  \App\Models\Message  $message
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Message $message)
+    public function destroy($id)
     {
-        //
+        $message = Message::find($id);
+
+        $house = House::find($message->house_id);
+
+        $message->delete();
+
+        return redirect()->action([HouseController::class, 'show'], ['house' => $house]);
     }
 }

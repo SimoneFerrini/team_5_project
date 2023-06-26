@@ -34,6 +34,8 @@ Route::middleware(['auth', 'verified'])
 
         Route::put('/houses/{house}', [MessageController::class, 'update'])->name('messages.update');
 
+        Route::delete('/message/{id}', [MessageController::class, 'destroy'])->name('messages.destroy');
+
         Route::post('/visibility/{house}', [VisibilityController::class, 'index'])->name('visibility.index');
     });
 
