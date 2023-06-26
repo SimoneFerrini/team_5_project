@@ -25,8 +25,6 @@
 
 <body>
     <div id="app">
-
-
         <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
             <div class="container">
 
@@ -38,6 +36,9 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
+                            {{-- l'url del localhost può essere 5173 o 5174 in base a cosa si avvia prima se front o back end. 
+                            se si avbvia prima il back end l'url deve essere cambiato necessariamente in 5174 altrimenti premendo il tasto home del back end ti
+                            riporta ad una pagina base di laravel + vite --}}
                             <a class="nav-link" href="http://localhost:5173/">Home</a>
                         </li>
                         <li class="nav-item">
