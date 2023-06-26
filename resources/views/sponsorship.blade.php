@@ -20,10 +20,9 @@
 @endif
 {{-- fine errori --}}
 {{-- inizio form --}}
-<div class="content">
-<form method="post" id="payment-form" action="{{ url('/checkout') }}">
-    @csrf
-    <section>
+<div class="container text-center">
+    <form method="post" id="payment-form" action="{{ url('/checkout') }}">
+        @csrf
         <label for="amount">
             <span>Sponsorizzazioni:</span>
             <select id="amount" name="amount" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
@@ -33,14 +32,17 @@
             </select>              
         </label>
         {{-- questo è il dropin da cambiare --}}
-        <div class="bt-drop-in-wrapper">
-            <div id="bt-dropin"></div>
-        </div>
-    </section>
+        
 
-    <input id="nonce" name="payment_method_nonce" type="hidden" />
-    <button class="btn btn-primary" type="submit"><span>Paga ora</span></button>
-</form>
+            <div style="width: 150px; text-align: center">
+                <div class="bt-drop-in-wrapper">
+                    <div id="bt-dropin"></div>
+                </div>
+            </div>
+        
+        <input id="nonce" name="payment_method_nonce" type="hidden" />
+        <button class="btn btn-primary" type="submit"><span>Paga ora</span></button>
+    </form>
 </div>
 {{-- fine form --}}
 {{-- script per il drop in dei pagamenti fornito da braintree --}}
