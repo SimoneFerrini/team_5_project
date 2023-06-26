@@ -46,8 +46,6 @@ class SponsorshipController extends Controller
             'amount' => $amount,
             'paymentMethodNonce' => $nonce,
             'customer' => [
-                'firstName' => 'tizio',
-                'lastName' => 'caio',
                 'email' => 'prova@prova.it',
             ],
             'options' => [
@@ -59,7 +57,7 @@ class SponsorshipController extends Controller
             $transaction = $result->transaction;
             // header("Location: transaction.php?id=" . $transaction->id);
     
-            return back()->with('success_message', 'Transaction successful. The ID is:'. $transaction->id);
+            return back()->with('success_message', 'Transazione avvenuta con successo. L\' ID è:' . ' ' . $transaction->id);
         } else {
             $errorString = "";
     

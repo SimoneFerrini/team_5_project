@@ -25,24 +25,27 @@
     @csrf
     <section>
         <label for="amount">
-            <span class="input-label">Amount</span>
-            <div class="input-wrapper amount-wrapper">
-                <input id="amount" name="amount" type="tel" min="1" placeholder="Amount" value="15">
-            </div>
+            <span>Sponsorizzazioni:</span>
+            <select id="amount" name="amount" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                <option value="2.99">Gold - 2.99€</option>
+                <option value="5.99">Platinum - 5.99€</option>
+                <option value="9.99">Diamond - 9.99€</option>
+            </select>              
         </label>
-
+        {{-- questo è il dropin da cambiare --}}
         <div class="bt-drop-in-wrapper">
             <div id="bt-dropin"></div>
         </div>
     </section>
 
     <input id="nonce" name="payment_method_nonce" type="hidden" />
-    <button class="button" type="submit"><span>Test Transaction</span></button>
+    <button class="btn btn-primary" type="submit"><span>Paga ora</span></button>
 </form>
 </div>
 {{-- fine form --}}
 {{-- script per il drop in dei pagamenti fornito da braintree --}}
 <script src="https://js.braintreegateway.com/web/dropin/1.38.1/js/dropin.min.js"></script>
+
 {{-- script per far funzionare il pagamento --}}
 <script>
   var form = document.querySelector('#payment-form');
