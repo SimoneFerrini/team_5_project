@@ -3,6 +3,7 @@
 use App\Http\Controllers\HouseController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SponsorshipController;
 use App\Http\Controllers\VisibilityController;
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,9 @@ Route::middleware(['auth', 'verified'])
         Route::delete('/message/{id}', [MessageController::class, 'destroy'])->name('messages.destroy');
 
         Route::post('/visibility/{house}', [VisibilityController::class, 'index'])->name('visibility.index');
+
+        Route::get('/sponsorship/{house}', [SponsorshipController::class, 'index'])->name('sponsorship.index');
+        Route::post('/checkout', [SponsorshipController::class, 'checkout'])->name('checkout');
     });
 
 Route::middleware('auth')->group(function () {

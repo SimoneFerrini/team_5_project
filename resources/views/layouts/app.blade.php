@@ -41,9 +41,13 @@
                             riporta ad una pagina base di laravel + vite --}}
                             <a class="nav-link" href="http://localhost:5173/">Home</a>
                         </li>
-                        <li class="nav-item">
+                        {{-- questo pulsante può essere eliminato in quanto ridondante,
+                            lo stiamo spostando nel dropdown con lo username che comparirà
+                            anche nel front end --}}
+                            
+                        {{-- <li class="nav-item">
                             <a class="nav-link" href="{{url('/houses') }}">{{ __('Dashboard') }}</a>
-                        </li>
+                        </li> --}}
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -66,6 +70,7 @@
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profile')}}</a>
+                                <a class="dropdown-item" href="{{ url('/houses') }}">{{ __('Dashboard')}}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
