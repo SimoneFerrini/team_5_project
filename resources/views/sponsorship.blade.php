@@ -32,14 +32,11 @@
             </select>              
         </label>
         {{-- questo è il dropin da cambiare --}}
-        
-
-            <div style="width: 150px; text-align: center">
-                <div class="bt-drop-in-wrapper">
-                    <div id="bt-dropin"></div>
-                </div>
+        <div style="width: 200px; margin: auto">
+            <div class="bt-drop-in-wrapper">
+                <div id="bt-dropin"></div>
             </div>
-        
+        </div>
         <input id="nonce" name="payment_method_nonce" type="hidden" />
         <button class="btn btn-primary" type="submit"><span>Paga ora</span></button>
     </form>
@@ -72,8 +69,6 @@
           console.log('Request Payment Method Error', err);
           return;
       }
-
-      // Add the nonce to the form and submit
       document.querySelector('#nonce').value = payload.nonce;
       form.submit();
       });
