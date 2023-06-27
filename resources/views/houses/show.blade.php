@@ -24,6 +24,7 @@
   <hr>
   <button class="btn btn-secondary mb-3"><a href="{{route('houses.edit', $house)}}" class="link-light">Modifica la tua casa</a></button>
   <button class="btn btn-secondary mb-3"><a href="{{route('sponsorship.index', $house)}}" class="link-light">Sponsorizza</a></button>
+  <button class="btn btn-secondary mb-3"><a href="{{route('welcome', $house)}}" class="link-light">Indietro</a></button>
   <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
     Elimina casa
   </button>
