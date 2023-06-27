@@ -49,5 +49,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/authenticated', function () {
+    return response()->json(['authenticated' => auth()->check()]);
+});
+
+// ->middleware('auth:sanctum')
 
 require __DIR__ . '/auth.php';

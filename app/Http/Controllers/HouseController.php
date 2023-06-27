@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\House;
 use App\Models\Message;
 use App\Models\Service;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -22,7 +23,9 @@ class HouseController extends Controller
     public function index()
     {
         $user_id = Auth::id();
+        
         $houses = House::where('user_id', $user_id)->orderBy('id', 'DESC')->get();
+
         return view('welcome', compact('houses'));
     }
 
