@@ -21,7 +21,8 @@
 {{-- fine errori --}}
 {{-- inizio form --}}
 <div class="container text-center">
-    <form method="post" id="payment-form" action="{{ url('/checkout') }}">
+    
+    <form method="post" id="payment-form" action="{{ route('sponsorship.checkout', $house->id)  }}">
         @csrf
         <label for="amount">
             <span>Sponsorizzazioni:</span>

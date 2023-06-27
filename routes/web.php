@@ -40,7 +40,8 @@ Route::middleware(['auth', 'verified'])
         Route::post('/visibility/{house}', [VisibilityController::class, 'index'])->name('visibility.index');
 
         Route::get('/sponsorship/{house}', [SponsorshipController::class, 'index'])->name('sponsorship.index');
-        Route::post('/checkout', [SponsorshipController::class, 'checkout'])->name('checkout');
+
+        Route::post('/checkout/{id}', [SponsorshipController::class, 'checkout'])->name('sponsorship.checkout');
     });
 
 Route::middleware('auth')->group(function () {

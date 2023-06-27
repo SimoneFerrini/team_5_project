@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\House;
 use App\Models\Sponsorship;
 use Illuminate\Http\Request;
 use Braintree\Gateway;
@@ -13,7 +14,7 @@ class SponsorshipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(House $house)
     {
         $gateway = new Gateway([
             'environment' => config('services.braintree.environment'),
@@ -25,12 +26,15 @@ class SponsorshipController extends Controller
         $token = $gateway->ClientToken()->generate();
     
         return view('sponsorship', [
-            'token' => $token
+            'token' => $token,
+            'house' => $house,
         ]);
     }
 
-    public function checkout(Request $request)
+    public function checkout(Request $request, $id)
     {
+
+        
         $gateway = new Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
@@ -52,10 +56,30 @@ class SponsorshipController extends Controller
                 'submitForSettlement' => true
             ]
         ]);
-    
+
+        
+
         if ($result->success) {
             $transaction = $result->transaction;
-            // header("Location: transaction.php?id=" . $transaction->id);
+            
+            if($amount == 2.99){
+                $sponsorshipId = 1;
+            };
+            if($amount == 5.99){
+                $sponsorshipId = 2;
+            };
+            if($amount == 9.99){
+                $sponsorshipId = 3;
+            };
+
+            $house = House::find($id);
+
+            
+
+            $sponsorshipDate = $result->transaction->createdAt;
+            
+
+            $house->sponsorships()->attach([$sponsorshipId], ['created_at' => $sponsorshipDate]);
     
             return back()->with('success_message', 'Transazione avvenuta con successo. L\' ID è:' . ' ' . $transaction->id);
         } else {
@@ -70,6 +94,7 @@ class SponsorshipController extends Controller
             return back()->withErrors('An error occurred with the message: '.$result->message);
         }
     }
+
 
 
 
