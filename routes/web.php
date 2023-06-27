@@ -33,7 +33,7 @@ Route::middleware(['auth', 'verified'])
             'show' => 'houses.show'
         ]);
 
-        Route::put('/houses/{house}', [MessageController::class, 'update'])->name('messages.update');
+        Route::put('/messages/{id}', [MessageController::class, 'update'])->name('messages.update');
 
         Route::delete('/message/{id}', [MessageController::class, 'destroy'])->name('messages.destroy');
 

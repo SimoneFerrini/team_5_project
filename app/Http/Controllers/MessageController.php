@@ -78,7 +78,9 @@ class MessageController extends Controller
      */
     public function update($id)
     {
+        
         $message = Message::find($id);
+        
 
         $message->update(['read' => true]);
 
