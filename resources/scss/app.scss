@@ -9,6 +9,11 @@ a {
     text-decoration: none;
 }
 
+main{
+    height: calc(100vh - 80px);
+   
+}
+
 
 .my-container{
     display: flex;
@@ -139,5 +144,64 @@ a {
             object-fit: cover;
         }
     }
+
+}
+
+
+
+//main_______________________________________________________________________________
+
+
+
+
+
+
+
+//footer______________________________________________________
+#footer_back{
+    background-color: #ecb390;
+    height: 80px;
+
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
+    #footer{
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+        ul{
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+    
+            a{
+                color: #5a5a5a;
+    
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+
+        .footer_right{
+            padding-right: 20px;
+            .long_logo{
+                width: 120px;
+            }
+    
+            .short_logo{
+                width: 100px;
+                display: none;
+            }
+        }
+
+
+    }
+
+
 
 }
