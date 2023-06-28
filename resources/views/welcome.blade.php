@@ -48,13 +48,17 @@
                 </li>
               </ul>
   
-              <div class="card-body d-flex gap-3 align-items-center " >
+              <div id="my_visibility">
                
                 <span>Visibile: </span>
                 <form action="{{ route('visibility.index', $house) }}" method="POST">
                   @csrf
+
                   <div class="form-check form-switch">
-                    <input name="visibility" class="form-check-input submitCheckbox" type="checkbox" role="switch" {{  $house->visibility ? "checked" : "" }}>
+                    <label class="switch">
+                      <input name="visibility" class="form-check-input submitCheckbox" type="checkbox" role="switch" {{  $house->visibility ? "checked" : "" }}>
+                      <span class="slider"></span>
+                    </label>
                   </div>
                 </form>
               </div>

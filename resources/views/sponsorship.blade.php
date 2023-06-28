@@ -20,7 +20,7 @@
 @endif
 {{-- fine errori --}}
 {{-- inizio form --}}
-<div class="container text-center">
+<div class="container text-center my-5">
     
     <form method="post" id="payment-form" action="{{ route('sponsorship.checkout', $house->id)  }}">
         @csrf
@@ -38,10 +38,10 @@
                 <div id="bt-dropin"></div>
             </div>
         </div>
-        <input id="nonce" name="payment_method_nonce" type="hidden" />
-        <button class="btn btn-primary" type="submit"><span>Paga ora</span></button>
+        <input id="nonce" name="payment_method_nonce" type="hidden"/>
+        <button class="pay_btn" type="submit"><span>Paga ora</span></button>
     </form>
-    <a href="{{route('houses.show', $house)}}"><button class="btn btn-secondary">Indietro</button></a>
+    <a href="{{route('houses.show', $house)}}"><button class="btn">Indietro</button></a>
 </div>
 {{-- fine form --}}
 {{-- script per il drop in dei pagamenti fornito da braintree --}}

@@ -1,6 +1,12 @@
 @import '~bootstrap/scss/bootstrap';
 @import '@fortawesome/fontawesome-free/css/all.css';
 
+@import 'variables.scss';
+@import 'mixins.scss';
+
+
+
+
 body{
     font-family: 'Montserrat', sans-serif;
 }
@@ -34,16 +40,95 @@ main{
     }
 }
 
+
+.pay_btn{
+    padding: 10px 20px;
+    @include border();
+    
+    background-color: $secondary;
+    color: white;
+    letter-spacing: 2px;
+    font-weight: bold;
+
+    &:hover{
+        background-color: #b46452;
+    }
+}
+
+///////////////////////SWITCH
+
+#my_visibility{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    padding: 30px 10px;
+
+}
+
+
+
+/* The switch - the box around the slider */
+.switch {
+    font-size: 13px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background: #839389;
+    border-radius: 50px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 2em;
+    width: 2em;
+    inset: 0;
+    background-color: white;
+    border-radius: 50px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+  
+  .switch input:checked + .slider {
+    background: $accent;
+  }
+  
+  .switch input:focus + .slider {
+    box-shadow: 0 0 1px $accent;
+  }
+  
+  .switch input:checked + .slider:before {
+    transform: translateX(1.6em);
+  }
+
 //navbar - login
 
 #my_navbar{
-    background-color: #ecb390;
+    background-color: $primary;
 
 
     #my_drop{
-        background-color: #94b49f;
-        border: none;
-        border-radius: 30px;
+        background-color: $accent;
+        @include border();
         
         padding: 0 10px;
 
@@ -53,12 +138,16 @@ main{
             letter-spacing: 1px;
         }
     }
+
+    #logo_img{
+        width: 70px;
+    }
 }
 
 
 .login_container{
     .card-header{
-        background-color:#94b49f;
+        background-color:$accent;
         color: white;
         font-weight: bold;
         letter-spacing: 2px;
@@ -66,7 +155,7 @@ main{
     }
 
     .my_btn{
-        background-color: #df7861;
+        background-color: $secondary;
         color: white;
         font-weight: bold;
         letter-spacing: 2px;
@@ -78,7 +167,7 @@ main{
     
 
     #forgot_pw{
-        color:#5a5a5a;
+        color:$text;
         text-decoration: none;
 
     }
@@ -94,8 +183,8 @@ main{
 
 //button create
 #create_btn {
-    border: 2px solid #df7861;
-    background-color: #df7861;
+    border: 2px solid $secondary;
+    background-color: $secondary;
     border-radius: 0.9em;
     padding: 0.8em 1.2em 0.8em 1em;
     transition: all ease-in-out 0.2s;
@@ -128,8 +217,7 @@ main{
 
         .my_show{
             background-color: #94b49fbd;
-            border: none;
-            border-radius: 30px;
+            @include border();
             color: white;
             font-weight: bold;
             padding: 10px 20px;
@@ -151,9 +239,15 @@ main{
             object-fit: cover;
         }
 
-        &:hover .my_show{
-            display: block;
+        &:hover{
+            .my_show{
+                display: block;
+
+            }
+
+            
         }
+        
 
     }
     
@@ -171,20 +265,18 @@ main{
 
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 30px;
 
     #images_container{
        
-
-        border: none;
-        border-radius: 30px; 
+        width: 1200px;
+        @include border();
         
-        .my-thumb{
 
-            width:900px;
-            height: 570px;
+        .my-thumb{
+            width: 100%;
             overflow: hidden;
-            border-radius: 30px;
+            @include border();
             
             img{
                 width: 100%;
@@ -205,8 +297,6 @@ main{
                 width: calc(100% / 3 - 10px / 3 * 2);
                 position: relative;
 
-                
-
                 .house_images_btn{
                     
                     position: absolute;
@@ -215,25 +305,21 @@ main{
                     transform: translate(-50%, -50%);
                     
                     button{
-                        background-color: #94b49f;
+                        background-color: $accent;
                         color: white;
                         padding: 10px 20px;
-                        border-radius: 30px;
-                        border: none;
+                        @include border();
                             
                         font-weight: bold;
                         letter-spacing: 1px;
 
                         display: none;
                     }
-
-                
-                   
-             
+            
                 }
 
                 img{
-                 
+                    @include border();
                     width: 100%;
                 }
 
@@ -248,6 +334,56 @@ main{
 
             }
 
+        }
+    }
+
+    #right_container{
+
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+
+
+        .info_container{
+            background-color: $accent;
+            padding: 30px;
+            @include border();
+
+            color: white;
+
+            .info_text{
+                font-size: 20px;
+            }
+
+            .main_list{
+                list-style: none;
+                padding: 0;
+            }
+        }
+
+        .message_container{
+
+            .my_message{
+                @include border();
+                background-color: #ecb390;
+
+                .message_btns{
+                    padding: 10px 0;
+
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    align-items: center;
+
+                    .read_btn{
+                        @include border();
+                        padding: 10px 15px;
+                        
+                    }
+
+                }
+
+            }
         }
     }
 
@@ -305,4 +441,191 @@ main{
 
 
 
+}
+
+
+
+
+
+
+//UPLOAD IMAGES
+
+
+
+.upload_image{
+    max-width: 900px;
+    margin: 2rem auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    
+    .my-thumb{
+        width: 100%;
+        overflow: hidden;
+        @include border();
+        
+        img{
+            width: 100%;
+            object-fit: cover;
+            object-position: center;
+            
+        }
+    }
+
+    img{
+        @include border();
+    }
+
+    .house_images{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 1rem 0;
+
+        .single_image{
+            position: relative;
+            width: calc(100% / 3 - 10px / 3 * 2);
+
+
+            img{
+                @include border();
+                width: 100%;
+            }
+
+            .house_images_btn{
+                    
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                
+                button{
+                    background-color: $accent;
+                    color: white;
+                    padding: 10px 20px;
+                    @include border();
+                        
+                    font-weight: bold;
+                    letter-spacing: 1px;
+
+                    font-size: 14px;
+
+                    display: none;
+                }
+        
+            }
+
+            &:hover button{
+                display: block;
+            }
+    
+            &:hover img{
+                filter: brightness(0.6);
+            }
+
+
+        }
+        
+
+
+    }
+
+    .choose_img{
+        padding: 20px 30px;
+    }
+
+    .upload_images_btns{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+
+        button{
+            @include border();
+            padding: 10px 20px;
+            background-color: $secondary;
+            color: white;
+            font-weight: bold;
+            letter-spacing: 2px;
+
+            
+        }
+        .annulla{
+            background-color: $accent;
+        }
+
+        button:hover{
+            background-color: #b46452;
+            box-shadow: 1px 1px 4px gray;
+        }
+
+        .annulla:hover{
+            background-color: #839389;
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/////media_queries
+/// 
+
+
+
+@media screen and (max-width: 992px) {
+ 
+    #house_container{
+        max-width: 700px;
+        margin: 2rem auto;
+        display: flex;
+        flex-direction: column;
+
+        #images_container{
+            width: 100%;
+        }
+    }
+}
+
+
+@media screen and (max-width: 576px) {
+ 
+    #house_container{
+        max-width: 400px;
+        margin: 2rem auto;
+        display: flex;
+        flex-direction: column;
+
+        #images_container{
+            width: 100%;
+
+
+            .house_images{
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                .single_image{
+                    width: 100%;
+                }
+            }
+        }
+    }
 }
