@@ -142,6 +142,7 @@ class HouseController extends Controller
             $house->services()->detach();
         }
 
+
         return redirect()->route('houses.show', $house);
     }
 
