@@ -23,7 +23,7 @@ class HouseController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        
+
         $houses = House::where('user_id', $user_id)->orderBy('id', 'DESC')->get();
 
         return view('welcome', compact('houses'));
@@ -77,7 +77,8 @@ class HouseController extends Controller
         if (array_key_exists('services', $formData)) {
             $newHouse->services()->attach($formData['services']);
         }
-        return redirect()->route('houses.show', $newHouse);
+
+        return redirect()->route('image.index', ['id' => $newHouse->id]);
     }
 
     /**
