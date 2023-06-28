@@ -6,6 +6,7 @@ use App\Models\House;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
@@ -102,8 +103,17 @@ class ImageController extends Controller
      * @param  \App\Models\Image  $image
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Image $image)
+    public function destroy($id)
     {
-        //
+        $image = Image::find($id);
+
+        File::delete($image->path);
+
+
+        $house = House::find($image->house_id);
+
+        $image->delete();
+
+        return redirect()->action([HouseController::class, 'show'], ['house' => $house]);
     }
 }

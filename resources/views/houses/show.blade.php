@@ -24,10 +24,44 @@
       </li>
     </ul>
   </div>
+  
+  @foreach($images as $singleImage)
+  
+  <img src="http://127.0.0.1:8000/{{$singleImage->path}}" class="w-25" alt="img">
+  <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#modalMessageDelete">
+    Elimina foto
+  </button>
+  <div class="modal fade" id="modalMessageDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Sei sicuro di voler eliminare la foto?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&Chi;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Attenzione! L'azione sarà irreversibile.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Torna indietro</button>
+          <form action="{{route('image.destroy', $singleImage->id)}}" method="POST">
+            @csrf
+            @method('DELETE')
+  
+            <button class="btn btn-danger" type="submit">Elimina</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  @endforeach
   <hr>
   <button class="btn btn-secondary mb-3"><a href="{{route('houses.edit', $house)}}" class="link-light">Modifica la tua casa</a></button>
   <button class="btn btn-secondary mb-3"><a href="{{route('sponsorship.index', $house)}}" class="link-light">Sponsorizza</a></button>
   <button class="btn btn-secondary mb-3"><a href="{{route('welcome', $house)}}" class="link-light">Indietro</a></button>
+  <button class="btn btn-secondary mb-3"><a href="{{route('image.create', $house)}}" class="link-light">Aggiungi foto</a></button>
+
   <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter">
     Elimina casa
   </button>
