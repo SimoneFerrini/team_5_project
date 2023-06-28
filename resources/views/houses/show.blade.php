@@ -13,7 +13,7 @@
   <div id="images_container">
 
     <!-- thumbnail -->
-    <div class="thumb">
+    <div class="my-thumb">
       <img src="{{asset('storage/'. $house->thumbnail)}}" class="card-img-top" alt="Immagine di copertina">
     </div>
     <!-- /thumbnail -->

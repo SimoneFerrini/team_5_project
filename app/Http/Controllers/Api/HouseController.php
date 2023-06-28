@@ -24,14 +24,14 @@ class HouseController extends Controller
             $houses = House::whereHas('services', function ($query) use ($services_ids) {
                 $query->whereIn('service_id', $services_ids);
             }, '=', count($services_ids))
-                ->with('services')->get();
+                ->with('services')->where('visibility', true)->get();
 
             return response()->json([
                 'success' => true,
                 'results' => $houses
             ]);
         } else {
-            $results = House::with('services')->get();
+            $results = House::with('services')->where('visibility', true)->get();
 
             return response()->json([
                 'success' => true,
