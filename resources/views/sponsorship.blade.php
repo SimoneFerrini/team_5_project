@@ -41,6 +41,7 @@
         <input id="nonce" name="payment_method_nonce" type="hidden" />
         <button class="btn btn-primary" type="submit"><span>Paga ora</span></button>
     </form>
+    <a href="{{route('houses.show', $house)}}"><button class="btn btn-secondary">Indietro</button></a>
 </div>
 {{-- fine form --}}
 {{-- script per il drop in dei pagamenti fornito da braintree --}}

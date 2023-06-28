@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\House;
+use App\Models\Image;
 use App\Models\Message;
 use App\Models\Service;
 use App\Models\User;
@@ -91,9 +92,11 @@ class HouseController extends Controller
     {
         $user_id = Auth::id();
 
+        $images = Image::where('house_id', $house->id)->get();
+
         $messages = Message::where('house_id', $house->id)->get();
 
-        return view('houses.show', compact('house', 'user_id', 'messages'));
+        return view('houses.show', compact('house', 'user_id', 'messages', 'images'));
     }
 
     /**

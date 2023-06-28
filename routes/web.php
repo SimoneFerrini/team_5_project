@@ -37,6 +37,8 @@ Route::middleware(['auth', 'verified'])
 
         Route::get('/images/{id}', [ImageController::class, 'index'])->name('image.index');
 
+        Route::delete('/images/{id}', [ImageController::class, 'destroy'])->name('image.destroy');
+
         Route::get('/images/{id}/addImage', [ImageController::class, 'create'])->name('image.create');
 
         Route::put('/messages/{id}', [MessageController::class, 'update'])->name('messages.update');
