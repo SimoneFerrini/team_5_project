@@ -1,6 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 @import '@fortawesome/fontawesome-free/css/all.css';
 
+body{
+    font-family: 'Montserrat', sans-serif;
+}
+
 a {
     text-decoration: none;
 }
@@ -24,4 +28,116 @@ a {
     }
 }
 
+//navbar - login
 
+#my_navbar{
+    background-color: #ecb390;
+
+
+    #my_drop{
+        background-color: #94b49f;
+        border: none;
+        border-radius: 30px;
+        
+        padding: 0 10px;
+
+        #navbarDropdown{
+            color: white;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+
+#login_container{
+    .card-header{
+        background-color:#94b49f;
+        color: white;
+        font-weight: bold;
+        letter-spacing: 2px;
+
+    }
+
+    .my_btn{
+        background-color: #df7861;
+        color: white;
+        font-weight: bold;
+        letter-spacing: 2px;
+    }
+
+    .my_btn:hover{
+        background-color: #b46452;
+    }
+    
+
+    #forgot_pw{
+        color:#5a5a5a;
+        text-decoration: none;
+
+    }
+
+    #forgot_pw:hover{
+        text-decoration: underline;
+    }
+}
+
+
+//cards welcome__________________________________________________________________
+
+
+//button create
+#create_btn {
+    border: 2px solid #df7861;
+    background-color: #df7861;
+    border-radius: 0.9em;
+    padding: 0.8em 1.2em 0.8em 1em;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+}
+   
+#create_btn span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+}
+   
+#create_btn:hover {
+    background-color: #b46452;
+}
+
+//img 
+
+#welcome_card{
+ 
+    
+    .img_container{
+        position: relative;
+
+        .my_show{
+            background-color: #94b49fbd;
+            border: none;
+            border-radius: 30px;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            letter-spacing: 1px;
+            width: 150px;
+            text-align: center;
+    
+            position: absolute;
+            top: 50%;
+            left: 50%;
+
+            transform: translate(-50%, -50%);
+        }
+        
+        #welcome_img{
+            aspect-ratio: 14/10;
+            object-fit: cover;
+        }
+    }
+
+}
