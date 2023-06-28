@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HouseController;
+use App\Http\Controllers\ImageController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\SponsorshipController;
@@ -33,7 +34,14 @@ Route::middleware(['auth', 'verified'])
             'show' => 'houses.show'
         ]);
 
+
+        Route::get('/images/{id}', [ImageController::class, 'index'])->name('image.index');
+
+        Route::get('/images/{id}/addImage', [ImageController::class, 'create'])->name('image.create');
+
         Route::put('/messages/{id}', [MessageController::class, 'update'])->name('messages.update');
+
+        Route::post('images/{id}', [ImageController::class, 'store'])->name('images.store');
 
         Route::delete('/message/{id}', [MessageController::class, 'destroy'])->name('messages.destroy');
 

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\House;
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
@@ -12,9 +15,11 @@ class ImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $logged_user_id = Auth::id();
+        $house = House::find($id);
+        return view('houses.moreImage', compact('house', 'logged_user_id'));
     }
 
     /**
@@ -22,9 +27,14 @@ class ImageController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $logged_user_id = Auth::id();
+
+        $house = House::find($id);
+
+
+        return view('houses.uploadImage', compact('house', 'logged_user_id'));
     }
 
     /**
@@ -33,9 +43,23 @@ class ImageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $house = House::find($id);
+
+
+        if ($request->hasFile('images')) {
+            foreach ($request->file('images') as $imagefile) {
+
+                $image = new Image;
+                $path = $imagefile->store('public/houses_img', ['disk' => 'my_files']);
+                // $path = Storage::put('house_img', $imagefile);
+                $image->path = $path;
+                $image->house_id = $house->id;
+                $image->save();
+            }
+        }
+        return redirect()->route('houses.show', $house);
     }
 
     /**
