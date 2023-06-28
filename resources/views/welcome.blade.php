@@ -23,7 +23,7 @@
     <div class="container d-flex flex-wrap justify-content-center gap-5 pt-3">
         @foreach ($houses as $house)
         <a href="{{route('houses.show', $house)}}" class="link-light">
-          <div id="welcome_card" class="card" style="width: 18rem;">
+          <div id="welcome_card" class="card {{$house->visibility ? '' : 'no-visibility' }}" style="width: 18rem;">
 
               <div class="img_container">
                 <div class="my_show">MOSTRA</div>
@@ -48,8 +48,9 @@
                 </li>
               </ul>
   
-              <div class="card-body d-flex gap-3 align-items-center">
+              <div class="card-body d-flex gap-3 align-items-center " >
                
+                <span>Visibile: </span>
                 <form action="{{ route('visibility.index', $house) }}" method="POST">
                   @csrf
                   <div class="form-check form-switch">

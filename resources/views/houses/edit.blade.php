@@ -2,7 +2,8 @@
 @section('content')
 <div class="container mt-5">
   @if($house->user_id != $user_id)
-  <span>Fatti una casa tua con blackjack e squillo di lusso!</span>
+  <!-- <span>Fatti una casa tua con blackjack e squillo di lusso!</span> -->
+  <span>Non è possibile modificare case che non hai inserito.</span>
   @else
 
   <div class="my-container">
