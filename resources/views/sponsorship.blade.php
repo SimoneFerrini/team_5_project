@@ -33,7 +33,7 @@
             </select>              
         </label>
         {{-- questo è il dropin da cambiare --}}
-        <div style="width: 200px; margin: auto">
+        <div style="width: 300px; margin: auto">
             <div class="bt-drop-in-wrapper">
                 <div id="bt-dropin"></div>
             </div>

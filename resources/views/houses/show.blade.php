@@ -8,6 +8,9 @@
     <img src="{{asset('storage/'. $house->thumbnail)}}" class="card-img-top" alt="Immagine di copertina">
     <div class="card-body">
       <h5 class="card-title">{{$house->title}}</h5>
+      @if($house->sponsorship)
+      <i if class="fa-solid fa-star-of-david fa-spin"></i>
+      @endif
       <p class="card-text">{{$house->description}}</p>
     </div>
     <ul class="list-group list-group-flush">

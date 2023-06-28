@@ -73,8 +73,10 @@ class SponsorshipController extends Controller
             };
 
             $house = House::find($id);
-
             
+            $house['sponsorship'] = true;
+            $house->save();
+            // dd($house['sponsorship']);
 
             $sponsorshipDate = $result->transaction->createdAt;
             
