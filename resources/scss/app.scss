@@ -11,7 +11,8 @@ a {
 
 main{
     height: calc(100vh - 80px);
-   
+    overflow: auto;
+    padding-bottom: 10rem;
 }
 
 
@@ -115,6 +116,10 @@ main{
 
 //img 
 
+.no-visibility{
+    opacity: 0.6;
+}
+
 #welcome_card{
  
     
@@ -136,6 +141,8 @@ main{
             top: 50%;
             left: 50%;
 
+            display: none;
+
             transform: translate(-50%, -50%);
         }
         
@@ -143,14 +150,99 @@ main{
             aspect-ratio: 14/10;
             object-fit: cover;
         }
-    }
 
+        &:hover .my_show{
+            display: block;
+        }
+
+    }
+    
+   
 }
 
 
 
 //main_______________________________________________________________________________
+//show
 
+#house_container{
+    max-width: 1400px;
+    margin: 2rem auto;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    #images_container{
+       
+
+        border: none;
+        border-radius: 30px; 
+        
+
+        img{
+            object-fit: cover;
+            border-radius: 30px;
+        }
+
+        .house_images{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 1rem 0;
+
+            .single_image{
+
+                width: calc(100% / 3 - 10px / 3 * 2);
+                position: relative;
+
+                
+
+                .house_images_btn{
+                    
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    
+                    button{
+                        background-color: #94b49f;
+                        color: white;
+                        padding: 10px 20px;
+                        border-radius: 30px;
+                        border: none;
+                            
+                        font-weight: bold;
+                        letter-spacing: 1px;
+
+                        display: none;
+                    }
+
+                
+                   
+             
+                }
+
+                img{
+                 
+                    width: 100%;
+                }
+
+                &:hover button{
+                    display: block;
+                }
+
+                &:hover img{
+                    filter: brightness(0.6);
+                }
+
+
+            }
+
+        }
+    }
+
+}
 
 
 

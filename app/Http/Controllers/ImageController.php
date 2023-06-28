@@ -34,8 +34,9 @@ class ImageController extends Controller
 
         $house = House::find($id);
 
-
-        return view('houses.uploadImage', compact('house', 'logged_user_id'));
+        $images = Image::where('house_id', $id)->get();
+        
+        return view('houses.uploadImage', compact('house', 'logged_user_id', 'images'));
     }
 
     /**
@@ -59,6 +60,7 @@ class ImageController extends Controller
                 $image->house_id = $house->id;
                 $image->save();
             }
+
         }
         return redirect()->route('houses.show', $house);
     }
