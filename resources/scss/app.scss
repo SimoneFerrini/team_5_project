@@ -289,6 +289,7 @@ main{
     #images_container{
         width: 1200px;
         
+        
         @include border();
         
 
@@ -369,6 +370,7 @@ main{
 
 
         .info_container{
+            max-width: 300px;
             background-color: $accent;
             padding: 30px;
             @include border();
@@ -377,6 +379,8 @@ main{
 
             .info_text{
                 font-size: 20px;
+                max-height: 200px;
+                overflow: scroll;
             }
 
             .main_list{

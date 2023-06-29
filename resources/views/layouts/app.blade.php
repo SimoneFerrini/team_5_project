@@ -90,7 +90,9 @@
             @yield('content')
         </main>
 
-
+        <footer>
+            @yield('footer')
+        </footer>
         <footer id="footer_back">
             <div id="footer">
                 <!-- sinistra -->
