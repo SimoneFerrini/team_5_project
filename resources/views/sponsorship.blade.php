@@ -4,7 +4,7 @@
 
 {{-- inizio sezione errori pagamento --}}
 @if (session('success_message'))
-<div class="alert alert-success">
+<div class="alert alert-success text-center">
     {{ session('success_message') }}
 </div>
 @endif
