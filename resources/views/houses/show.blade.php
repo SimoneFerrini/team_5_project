@@ -95,10 +95,12 @@
 
     <div class="info_container">
       <div class="info_body">
-        <h4 class="info_title">{{$house->title}}</h4>
-        @if($house->sponsorship)
-        <i if class="fa-solid fa-star-of-david fa-spin"></i>
-        @endif
+        <div class="sponsor-wrapper d-flex align-items-center gap-3">
+          <h4 class="info_title" style="margin: 0">{{$house->title}}</h4>
+          @if($house->sponsorship)
+          <i class="fa-solid fa-star fa-beat" style="color: #f8df07;"></i>
+          @endif
+        </div>
         <p class="info_text">{{$house->description}}</p>
         <ul class="main_list">
           <li>Stanze: {{$house->rooms}}</li>
