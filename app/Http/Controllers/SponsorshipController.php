@@ -83,7 +83,7 @@ class SponsorshipController extends Controller
 
             $house->sponsorships()->attach([$sponsorshipId], ['created_at' => $sponsorshipDate]);
 
-            session()->flash('success_message', 'Transazione avvenuta con successo. L\'ID è: ' . $transaction->id);
+            session()->flash('success_message', 'Transazione avvenuta con successo');
 
             return redirect()->route('houses.show', $house);
 

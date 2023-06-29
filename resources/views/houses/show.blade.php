@@ -23,7 +23,7 @@
 </span>
   @else
 @if(session()->has('success_message'))
-<span class="alert alert-success text-center my-2">
+<span class="alert alert-success d-flex justify-content-center">
     {{ session('success_message') }}
 </span>
 @endif
