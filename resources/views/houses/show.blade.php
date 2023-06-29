@@ -49,12 +49,12 @@
           <div class="single_image">
             <img src="http://127.0.0.1:8000/{{$singleImage->path}}" alt="img">
             <div class="house_images_btn">
-              <button type="submit" data-toggle="modal" data-target="#modalMessageDelete">
+              <button type="submit" data-toggle="modal" data-target="#modalMessageDelete{{$singleImage->id}}">
                   Elimina foto
               </button>
               <!-- inizio modale per eliminare foto -->       
             </div>
-            <div class="modal fade" id="modalMessageDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal fade" id="modalMessageDelete{{$singleImage->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
@@ -130,7 +130,11 @@
       @foreach ($messages as $message)
       <div class="message ">
         <div class="alert mt-2 {{($message->read) ? 'alert-dark' : 'alert-success'}} my_message" role="alert">
-          <h4 style="display :{{($message->read) ? 'none' : 'block'}};" class="alert-heading">Nuovo messaggio!</h4>
+          @if(!$message->read)
+          <i class="fa-solid fa-envelope"></i><h4 style="display :{{($message->read) ? 'none' : 'inline'}}; padding-left: 5px" class="alert-heading">Nuovo messaggio!</h4>
+          @else 
+          <i class="fa-solid fa-envelope-open"></i>
+          @endif
           <p style="{{($message->read) ? 'alert-dark' : 'alert-success'}}"></p>
           <p>{{$message->text}}</p>
           <hr>
@@ -142,12 +146,12 @@
               @method('PUT')
               <button class="read_btn" type="submit">Segna come letto</button>
             </form>
-            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#modalMessageDelete">
+            <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#modalMessageDelete{{$message->id}}">
               Elimina messaggio
             </button>
 
           </div>
-          <div class="modal fade" id="modalMessageDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal fade" id="modalMessageDelete{{$message->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">

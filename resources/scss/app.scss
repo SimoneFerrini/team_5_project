@@ -380,7 +380,7 @@ main{
             .info_text{
                 font-size: 20px;
                 max-height: 200px;
-                overflow: scroll;
+                overflow: auto;
             }
 
             .main_list{
@@ -390,6 +390,8 @@ main{
         }
 
         .message_container{
+
+            max-width: 400px;
 
             .my_message{
                 @include border();
