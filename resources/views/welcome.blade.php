@@ -33,7 +33,12 @@
 
               </div>
               <div class="card-body">
-                <h5 class="card-title"><strong>{{$house->title}}</strong></h5>
+                <div class="wrapper-sponsor-show d-flex align-items-center gap-3">
+                  <h5 class="card-title" style="margin: 0"><strong>{{$house->title}}</strong></h5>
+                  @if($house->sponsorship)
+                  <i class="fa-solid fa-star fa-beat fa-xs" style="color: #f8df07;"></i>
+                  @endif
+                </div>
                 <p class="card-text">{{Str::limit($house->description, 20)}}</p>
               </div>
   

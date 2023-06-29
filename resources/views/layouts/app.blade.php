@@ -107,7 +107,7 @@
                 <!-- destra -->
 
                 <div class="footer_right">
-                    <img class="long_logo" src="{{asset('images/logochiaro.png')}}" alt="logo">
+                    {{-- <img class="long_logo" src="{{asset('images/logochiaro.png')}}" alt="logo"> --}}
                     <img class="short_logo" src="{{asset('images/logo-bool.png')}}" alt="logo">
 
                 </div>
