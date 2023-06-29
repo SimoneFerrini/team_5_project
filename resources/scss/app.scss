@@ -370,7 +370,7 @@ main{
 
 
         .info_container{
-            max-width: 400px;
+            max-width: 1200px;
             background-color: $accent;
             padding: 30px;
             @include border();
@@ -627,6 +627,14 @@ main{
 
         #images_container{
             width: 100%;
+        }
+        #right_container {
+            width: 100%;
+            .info_container {
+            width: 100%;
+
+            }
+
         }
     }
     #pulsanti {
