@@ -421,13 +421,13 @@ main{
 
 //footer______________________________________________________
 #footer_back{
+    
     background-color: #ecb390;
     height: 80px;
 
-    position: fixed;
-    bottom: 0;
+    // position: fixed;
+    // bottom: 0;
     width: 100%;
-
     #footer{
         height: 100%;
         display: flex;
@@ -453,11 +453,12 @@ main{
             padding-right: 20px;
             .long_logo{
                 width: 120px;
+                display: none;
             }
     
             .short_logo{
-                width: 100px;
-                display: none;
+                width: 60px;
+                height: 60px;
             }
         }
 
@@ -659,6 +660,9 @@ main{
     }
     #pulsanti {
         width: 50%;
+    }
+    .short_logo {
+        display: none;
     }
     
 }
