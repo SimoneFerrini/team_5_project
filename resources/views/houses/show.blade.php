@@ -180,31 +180,18 @@
 </div>
 
 
-  <div class="container pt-3 d-flex align-items-center flex-column">
-    <div class="card" style="width: 18rem;">
-    
-      
+  <div  class="container d-flex align-items-center flex-column">
+    <div style="width: 18rem;">
+      <hr>
     </div>
-    
-
-    <hr>
-    <div class="d-flex justify-content-center flex-row w-75 mx-auto align-content-center gap-4">
-      <div>
+      <div id="pulsanti" class="d-flex gap-2 align-content-center">
         <button class="btn btn-warning mb-3"><a href="{{route('sponsorship.index', $house)}}" class="link-light">Sponsorizza</a></button>
-      </div>
-      <div class="d-flex gap-2">
         <button class="btn btn-secondary mb-3"><a href="{{route('houses.edit', $house)}}" class="link-light">Modifica la tua casa</a></button>
         <button class="btn btn-secondary mb-3"><a href="{{route('image.create', $house)}}" class="link-light">Aggiungi foto</a></button>
-      </div>
-      <div class="d-flex gap-2 align-content-center">
         <button class="btn btn-secondary mb-3"><a href="{{route('welcome', $house)}}" class="link-light">Indietro</a></button>
-        <button type="submit" class="btn btn-danger mb-3" data-toggle="modal" data-target="#exampleModalCenter" id="btn-elimina-casa">
-          Elimina casa
-        </button>
+        <button type="submit" class="btn btn-danger mb-3" data-toggle="modal" data-target="#exampleModalCenter" id="btn-elimina-casa">Elimina casa</button>
       </div>
-    </div>
       @endif
-  
   </div>
 
     {{-- Modal --}}
