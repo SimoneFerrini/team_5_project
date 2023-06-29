@@ -27,9 +27,9 @@
         <label for="amount">
             <span>Sponsorizzazioni:</span>
             <select id="amount" name="amount" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                <option value="2.99">Gold - 2.99€</option>
-                <option value="5.99">Platinum - 5.99€</option>
-                <option value="9.99">Diamond - 9.99€</option>
+                <option value="2.99">14h - 2.99€</option>
+                <option value="5.99">72h - 5.99€</option>
+                <option value="9.99">144h - 9.99€</option>
             </select>              
         </label>
         {{-- questo è il dropin da cambiare --}}
