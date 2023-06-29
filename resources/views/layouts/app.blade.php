@@ -59,7 +59,7 @@
                         </li>
                         @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                         </li>
                         @endif
                         @else
@@ -69,7 +69,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profile')}}</a>
+                                <a class="dropdown-item" href="{{ url('profile') }}">{{__('Profilo')}}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
@@ -89,35 +89,31 @@
         <main class="">
             @yield('content')
         </main>
-
-        <footer>
-            @yield('footer')
-        </footer>
-        <footer id="footer_back">
-            <div id="footer">
-                <!-- sinistra -->
-                <div class="links">
-                    <ul class="pt-4">
-                    <li><a href="#">Lavora con noi</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contatti</a></li>
-                    <li><a href="#">Termini&Servizi</a></li>
-                    </ul>
-                </div>
-                <!-- /sinistra -->
-                
-                <!-- destra -->
-
-                <div class="footer_right">
-                    {{-- <img class="long_logo" src="{{asset('images/logochiaro.png')}}" alt="logo"> --}}
-                    <img class="short_logo" src="{{asset('images/logo-bool.png')}}" alt="logo">
-
-                </div>
-                <!-- /destra -->
-            </div>
-             
-        </footer>
     </div>
+    <footer id="footer_back">
+        <div id="footer">
+            <!-- sinistra -->
+            <div class="links">
+                <ul class="pt-4">
+                <li><a href="#">Lavora con noi</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contatti</a></li>
+                <li><a href="#">Termini&Servizi</a></li>
+                </ul>
+            </div>
+            <!-- /sinistra -->
+            
+            <!-- destra -->
+
+            <div class="footer_right">
+                {{-- <img class="long_logo" src="{{asset('images/logochiaro.png')}}" alt="logo"> --}}
+                <img class="short_logo" src="{{asset('images/logo-bool.png')}}" alt="logo">
+
+            </div>
+            <!-- /destra -->
+        </div>
+         
+    </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
