@@ -16,34 +16,11 @@
         <img src="{{asset('/'.$singleImage->path)}}" alt="img">
 
         <div class="house_images_btn">
-              <button type="submit" data-toggle="modal" data-target="#modalMessageDelete">
-                  Elimina foto
-              </button>       
+          <button type="submit" data-toggle="modal" data-target="#modalMessageDelete">
+            Elimina foto
+          </button>       
         </div>
-
-      </div>
-      
-      @endforeach
-
-      <div class="w-100 container mx-auto my-5">
-        <form action="{{ route('images.store', $house->id) }}" method="POST" enctype="multipart/form-data">
-          @csrf
-          <h1 class="text-center">Carica altre immagini</h1>
-          <hr>
-          <div>
-            <input type="file" name="images[]" multiple class="choose_img">
-          </div>
-  
-          <hr>
-  
-          <div class="upload_images_btns">
-            <button type="submit">Invia</button>
-            <a href="{{route('houses.show', $house)}}"><button class="annulla">Annulla</button></a>
-  
-          </div>
-  
-        </form>
-
+        
       </div>
       <div class="modal fade" id="modalMessageDelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered" role="document">
@@ -71,6 +48,29 @@
               </div>
 
             </div>
+      
+      @endforeach
+
+      <div class="w-100 container mx-auto my-5">
+        <form action="{{ route('images.store', $house->id) }}" method="POST" enctype="multipart/form-data">
+          @csrf
+          <h1 class="text-center">Carica altre immagini</h1>
+          <hr>
+          <div>
+            <input type="file" name="images[]" multiple class="choose_img">
+          </div>
+  
+          <hr>
+  
+          <div class="upload_images_btns">
+            <button type="submit">Invia</button>
+            <a href="{{route('houses.show', $house)}}"><button class="annulla">Annulla</button></a>
+  
+          </div>
+  
+        </form>
+
+      </div>
   
       </div>
 

@@ -20,20 +20,26 @@
       Non puoi visualizzare le proprietà di un altro utente.
     </span>
   </span>  
-  @else
 </span>
+  @else
+@if(session()->has('success_message'))
+<span class="alert alert-success text-center my-2">
+    {{ session('success_message') }}
+</span>
+@endif
 <div id="house_container">
   <!-- se l'utente non è il solito loggato -->
-
+  
+  
   <!-- gruppo delle immagini -->
   <div id="images_container">
-
+    
     <!-- thumbnail -->
     <div class="my-thumb">
       <img src="{{asset('storage/'. $house->thumbnail)}}" class="card-img-top" alt="Immagine di copertina">
     </div>
     <!-- /thumbnail -->
-
+    
     <!-- altre_immagini -->
     <div class="house_images">
 

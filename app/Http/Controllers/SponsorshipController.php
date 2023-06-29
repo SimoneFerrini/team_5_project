@@ -22,9 +22,9 @@ class SponsorshipController extends Controller
             'publicKey' => config('services.braintree.publicKey'),
             'privateKey' => config('services.braintree.privateKey')
         ]);
-    
+
         $token = $gateway->ClientToken()->generate();
-    
+
         return view('sponsorship', [
             'token' => $token,
             'house' => $house,
@@ -34,17 +34,17 @@ class SponsorshipController extends Controller
     public function checkout(Request $request, $id)
     {
 
-        
+
         $gateway = new Gateway([
             'environment' => config('services.braintree.environment'),
             'merchantId' => config('services.braintree.merchantId'),
             'publicKey' => config('services.braintree.publicKey'),
             'privateKey' => config('services.braintree.privateKey')
         ]);
-    
+
         $amount = $request->amount;
         $nonce = $request->payment_method_nonce;
-    
+
         $result = $gateway->transaction()->sale([
             // qui possiamo salvare i dati dello user
             'amount' => $amount,
@@ -57,43 +57,48 @@ class SponsorshipController extends Controller
             ]
         ]);
 
-        
+
 
         if ($result->success) {
             $transaction = $result->transaction;
-            
-            if($amount == 2.99){
+
+            if ($amount == 2.99) {
                 $sponsorshipId = 1;
             };
-            if($amount == 5.99){
+            if ($amount == 5.99) {
                 $sponsorshipId = 2;
             };
-            if($amount == 9.99){
+            if ($amount == 9.99) {
                 $sponsorshipId = 3;
             };
 
             $house = House::find($id);
-            
+
             $house['sponsorship'] = true;
             $house->save();
             // dd($house['sponsorship']);
 
             $sponsorshipDate = $result->transaction->createdAt;
-            
+
 
             $house->sponsorships()->attach([$sponsorshipId], ['created_at' => $sponsorshipDate]);
-    
-            return back()->with('success_message', 'Transazione avvenuta con successo. L\' ID è:' . ' ' . $transaction->id);
+
+            session()->flash('success_message', 'Transazione avvenuta con successo. L\'ID è: ' . $transaction->id);
+
+            return redirect()->route('houses.show', $house);
+
+            /* return back()->with('success_message', 'Transazione avvenuta con successo. L\' ID è:' . ' ' . $transaction->id)->redirect()->route('houses.show', $house); */
+            /* return redirect()->route('houses.show', $house)->with('success_message', 'Transazione avvenuta con successo. L\' ID è:' . ' ' . $transaction->id);; */
         } else {
             $errorString = "";
-    
+
             foreach ($result->errors->deepAll() as $error) {
                 $errorString .= 'Error: ' . $error->code . ": " . $error->message . "\n";
             }
-    
+
             // $_SESSION["errors"] = $errorString;
             // header("Location: index.php");
-            return back()->withErrors('An error occurred with the message: '.$result->message);
+            return back()->withErrors('An error occurred with the message: ' . $result->message);
         }
     }
 
