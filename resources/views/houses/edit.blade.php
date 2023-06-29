@@ -22,11 +22,13 @@
   </span>  
   @else
 
+  <h3 class="text-center mb-3">Modifica {{$house->title}}</h3>
   <div class="my-container">
     <div class="img-container">
         <img src="{{asset('storage/'. $house->thumbnail)}}" alt="img">
     </div>
   </div>
+
   <form action="{{route('houses.update', $house)}}" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
       @csrf
       @method('PUT')

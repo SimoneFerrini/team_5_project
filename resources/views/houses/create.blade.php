@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('content')
 <div class="container mt-5">
+    <h3 class="text-center mb-3">Aggiungi la tua nuova casa</h3>
     <form action="{{route('houses.store')}}" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
         @csrf
         <div class="input-group mb-3">
