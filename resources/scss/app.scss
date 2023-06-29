@@ -626,6 +626,10 @@ main{
             width: 100%;
         }
     }
+    #pulsanti {
+        flex-direction: column;
+        width: 80%;
+    }
 }
 
 
@@ -653,4 +657,8 @@ main{
             }
         }
     }
+    #pulsanti {
+        width: 50%;
+    }
+    
 }
