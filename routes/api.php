@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\HouseController;
 use App\Http\Controllers\Api\ImageController;
+use App\Http\Controllers\Api\OrderedSearchController;
 use App\Http\Controllers\Api\ServiceController;
 use App\Http\Controllers\Api\SponsoredHouseController;
 use App\Http\Controllers\MessageController;
