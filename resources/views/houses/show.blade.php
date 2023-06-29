@@ -141,11 +141,13 @@
           <p class="mb-0">Da: {{$message->email}}</p>
 
           <div class="message_btns">
+            @if(!$message->read)
             <form action="{{ route('messages.update', $message->id)}}" method="POST">
               @csrf
               @method('PUT')
               <button class="read_btn" type="submit">Segna come letto</button>
             </form>
+            @endif
             <button type="submit" class="btn btn-danger" data-toggle="modal" data-target="#modalMessageDelete{{$message->id}}">
               Elimina messaggio
             </button>
